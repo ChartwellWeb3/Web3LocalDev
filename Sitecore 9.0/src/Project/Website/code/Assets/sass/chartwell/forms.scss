@@ -1,0 +1,199 @@
+@import "_variables.scss";
+//styling for the error messages
+%error-messages {
+  background-color: $mediumRed;
+  padding: $standardUnit $standardUnit*1.5;
+  border-radius: $standardUnit/2;
+  width: 100%;
+  display: block;
+  margin-top: $standardUnit/2;
+  position: relative;
+  box-shadow: $standardBoxShadow;
+  text-shadow: $standardBoxShadow;
+  animation-name: fadeInDown;
+  animation-duration: 1.5s;
+
+  &::after {
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: $standardUnit solid transparent;
+    border-right: $standardUnit solid transparent;
+    border-bottom: $standardUnit solid $mediumRed;
+    position: absolute;
+    top: -$standardUnit;
+  }
+}
+
+
+//we extend this for the different forms
+%commonToAllForms {
+  .text-danger {
+    color: white
+  }
+
+  .form-group {
+    margin-bottom: $standardUnit;
+
+    .radio label {
+      display: inline-block;
+    }
+
+    .form-control {
+      height: auto;
+      font-size: $rootfontSizeRem * .85;
+      border: 0px solid transparent;
+      color: black;
+
+      &.input-validation-error {
+        background-color: white;
+        color: $darkRed;
+        border: 1px solid $darkRed;
+
+        &::placeholder {
+          color: $darkRed !important;
+        }
+      }
+    }
+
+    .field-validation-valid.text-danger {
+      opacity: 0;
+    }
+
+    .field-validation-error {
+      @extend %error-messages;
+    }
+  }
+}
+
+//contact form
+#chartwellContactForm, #chartwellResidencesContactForm {
+  @extend %commonToAllForms;
+  padding: 1.25rem;
+  margin-bottom: $standardUnit*4;
+  background-color: $chartwellPrimary;
+  border-radius: $standardUnit;
+  color: white;
+  font-weight: 400;
+  font-size: $rootfontSizeRem * .95;
+
+  input::placeholder, select option, textarea::placeholder {
+    color: black !important;
+  }
+
+  h2, h3, h4, h5, p {
+    color: white;
+  }
+
+  h3 {
+    margin: 0 5px;
+    font-size: $rootfontSizeRem * 1.55;
+  }
+
+  hr {
+    margin: 7px 0;
+    opacity: 0.25;
+  }
+
+  a.phoneNumber {
+    color: $phoneNumberColor;
+    font-weight: 600;
+    letter-spacing: $standardUnit/5;
+  }
+
+  button {
+    color: black;
+    font-weight: 600;
+  }
+
+  label {
+    font-weight: 400;
+  }
+}
+.fr {
+  #chartwellContactForm, #chartwellResidencesContactForm {
+    h3 {
+      font-size: $rootfontSizeRem * 1.3;
+    }
+  }
+}
+
+.formIsItTime {
+  @extend %commonToAllForms;
+
+  .field-validation-valid.text-danger {
+    opacity: 0;
+  }
+
+  .field-validation-error {
+    @extend %error-messages;
+    margin-left: -$standardUnit*2;
+  }
+}
+
+#SubmitMsg {
+  @extend %commonToAllForms;
+
+  .field-validation-valid.text-danger {
+    opacity: 0;
+  }
+
+  .field-validation-error {
+    @extend %error-messages;
+    margin: -$standardUnit 0 $standardUnit 0;
+  }
+
+  .form-control {
+    margin-bottom: $standardUnit*3;
+  }
+}
+
+
+#ui-datepicker-div {
+  background-color: $lighterGray;
+  box-shadow: $higherBoxShadow;
+}
+
+#ContactMsg > .form-group label {
+  display: none;
+}
+
+.resFormConfirmation, .resFormConfirmation h4, .resFormConfirmation p {
+  color: white;
+}
+
+.ui-datepicker-trigger {
+  float: right;
+  display: inline-block;
+  position: relative;
+  top: -27px;
+  left: 28px;
+  border-bottom: none;
+  padding: 3px 3px;
+  border-radius: 4px;
+  border: 1px solid lightGray;
+  cursor: pointer;
+  background-color: rgba(255,255,255,.8);
+}
+
+.ui-datepicker-trigger:hover {
+  background-color: rgba(0,115,188,.5);
+}
+
+
+
+#TimeOfDayForVisit {
+  width: 100%;
+  margin-top: -20px;
+  margin-bottom: 8px;
+}
+
+
+.resPdfBut a, .resPrintBut a {
+  color: gray;
+}
+
+.resPdfBut a > .glyphicon, .resPrintBut a > .glyphicon {
+  color: #0073bc;
+}

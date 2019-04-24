@@ -1,0 +1,65 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@model RenderingModel
+@{
+
+}
+<div class="panel panel-primary resForm">
+    <div class="panel-heading">
+        <div class="panel-title text-center">
+            <h5>Questions about living at this residence?</h5>
+            <h4><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> 778-376-2002</h4>
+        </div>
+    </div>
+    <div class="resFormImg"><img src="~/Assets/Images/Layout/call-centre.jpg" class="img-responsive" alt="call centre" /></div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label for="firstName">First Name*</label>
+            <input type="text" class="form-control" id="firstName" placeholder="First Name">
+        </div>
+        <div class="form-group">
+            <label for="firstName">Last Name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="text" class="form-control" id="phoneNumber" placeholder="Phone Number">
+        </div>
+        <div class="form-group">
+            <label for="emailAddress">Email*</label>
+            <input type="email" class="form-control" id="emailAddress" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="questions">Questions</label>
+            <textarea class="form-control" id="questions" rows="3"></textarea>
+        </div>
+        <small>Do you wish to receive event invitations and other information about our services? *</small>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="blankRadio" id="formYes" value="Yes" aria-label="SignUpForm">
+                            Yes
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="blankRadio" id="formNo" value="No" aria-label="SignUpForm">
+                            No
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-warning">Submit</button>
+    </div>
+
+</div>

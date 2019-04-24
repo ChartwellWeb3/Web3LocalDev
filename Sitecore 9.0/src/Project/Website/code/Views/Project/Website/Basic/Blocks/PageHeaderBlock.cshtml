@@ -1,0 +1,569 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@model RenderingModel
+@{
+  var itemName = string.Empty;
+}
+<div class="container-fluid hidden-print">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <!-- request from Thea (margin top and bottom)-->
+      @*<img class="logoEn img-responsive" src="~/Assets/Images/Layout/chart-logo-2014.png" alt="Chartwell Logo" />*@
+
+      <a href='@Url.Action("Index", "StaticPages", new { PartialItemUrlText = @Sitecore.Globalization.Translate.Text("Home"), StaticLanguage = Model.Item.Language.ToString() }, null)' class="logoEn">
+        @if (Model.Item.Language.Name == "en")
+        {
+          <img src="~/Assets/Images/Layout/chart-logo-2014.png" alt="Chartwell Logo" />
+        }
+        else
+        {
+          <img src="~/Assets/Images/Layout/chart-logo-2014-fr.png" alt="Chartwell Logo" />
+        }
+      </a>
+
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-8 text-right hidden-print">
+
+      @Html.Sitecore().Placeholder("Header.ClosestResidence")
+      <div class="topBarLangCarrInvest">
+
+        @*<a href="#" class="tabCareers">Careers</a>*@
+        @if (Model.Item.Language.Name == "en")
+        {
+          <a href="http://careersatchartwell.com/our-mission-vision-and-values" target="_blank" class="tabCareers">@Sitecore.Globalization.Translate.Text("Careers")</a>
+        }
+        else
+        {
+          <a href="http://careersatchartwell.com/fr/vision-mission-et-valeurs" target="_blank" class="tabCareers">@Sitecore.Globalization.Translate.Text("Careers")</a>
+        }
+
+        @*<a href="#" class="tabInvest">Investors Relations</a>*@
+        @if (Model.Item.Language.Name == "en")
+        {
+          <a href="http://investors.chartwell.com/corporateprofile.aspx?iid=4100072" class="tabInvest" target="_blank">@Sitecore.Globalization.Translate.Text("InvestorRelations")</a>
+        }
+        else
+        {
+          <a href="http://investors.chartwell.com/GenPage.aspx?IID=4100072&GKP=1073746086&xslt=4100072_fr" class="tabInvest" target="_blank">@Sitecore.Globalization.Translate.Text("InvestorRelations")</a>
+        }
+
+        <div class="languageToggle @Sitecore.Context.Language">
+          @Html.Sitecore().Placeholder("Header.right")
+        </div>
+
+        <input type="hidden" name="session" id="session" />
+
+      </div>
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-expand-md navbar-inverse" id="globalHeaderNav">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      @Html.Sitecore().Placeholder("Page.Header.Center")
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse @Sitecore.Context.Language" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li>
+          @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Home"), "Index", "StaticPages", new { PartialItemUrlText = @Sitecore.Globalization.Translate.Text("Home"), StaticLanguage = Model.Item.Language.ToString() }, null)
+        </li>
+        <!--Getting Started-->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@Sitecore.Globalization.Translate.Text("Getting Started")<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>
+              @{
+                itemName = @Sitecore.Globalization.Translate.Text("Getting Started") + "/" + @Sitecore.Globalization.Translate.Text("Understanding the Benefits");
+              }
+              @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Understanding the Benefits"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+
+              <ul class="dropDown3thLevel">
+                <li>
+
+                  @{
+                    itemName = @Sitecore.Globalization.Translate.Text("Getting Started") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Understanding the Benefits") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("A Day in the Life of a Resident");
+                  }
+                  @Html.ActionLink(@Sitecore.Globalization.Translate.Text("A Day in the Life of a Resident"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+                </li>
+              </ul>
+
+            </li>
+            <li>
+              @{
+                itemName = @Sitecore.Globalization.Translate.Text("Getting Started") + "/" + @Sitecore.Globalization.Translate.Text("Searching for Self");
+              }
+              @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Searching for Self"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+
+              <ul class="dropDown3thLevel">
+                <li>
+
+                  @{
+                    itemName = @Sitecore.Globalization.Translate.Text("Getting Started") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Searching for Self") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Am I Ready");
+                  }
+                  @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Am I Ready"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+                </li>
+                <li>
+                  @{
+                    itemName = @Sitecore.Globalization.Translate.Text("Getting Started") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Searching for Self") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Benefits of Retirement Living");
+                  }
+                  @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Benefits of Retirement Living"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+                </li>
+                <li>
+                  @{
+                    itemName = @Sitecore.Globalization.Translate.Text("Getting Started") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Searching for Self") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Exploring Retirement Living");
+                  }
+                  @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Exploring Retirement Living"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+                </li>
+                <li>
+                  @{
+                    itemName = @Sitecore.Globalization.Translate.Text("Getting Started") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Searching for Self") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("HowToMakeTheTransition");
+                  }
+                  @Html.ActionLink(@Sitecore.Globalization.Translate.Text("HowToMakeTheTransition"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+                </li>
+
+              </ul>
+            </li>
+            <li>
+              @{
+                itemName = @Sitecore.Globalization.Translate.Text("Getting Started") +
+                    "/" +
+                    @Sitecore.Globalization.Translate.Text("Searching for a Loved One");
+              }
+              @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Searching for a Loved One"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+
+              <ul class="dropDown3thLevel">
+                <li>
+                  @{
+                    itemName = @Sitecore.Globalization.Translate.Text("Getting Started") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Searching for a Loved One") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Is It Time");
+                  }
+                  @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Is It Time"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+                </li>
+                <li>
+                  @{
+                    itemName = @Sitecore.Globalization.Translate.Text("Getting Started") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Searching for a Loved One") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("PeaceOfMind");
+                  }
+                  @Html.ActionLink(@Sitecore.Globalization.Translate.Text("PeaceOfMind"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+                </li>
+
+
+                <li>
+                  @{
+                    itemName = @Sitecore.Globalization.Translate.Text("Getting Started") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Searching for a Loved One") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Supporting an Aging Parent");
+                  }
+                  @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Supporting an Aging Parent"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+                </li>
+
+              </ul>
+            </li>
+            @*
+              <li>
+                @{
+                  itemName = @Sitecore.Globalization.Translate.Text("Getting Started") +
+                      "/" +
+                      @Sitecore.Globalization.Translate.Text("Resident and Staff Stories");
+                }
+                @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Resident and Staff Stories"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+              </li>
+            *@
+          </ul>
+        </li>
+
+        <!--Help Me Choose -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@Sitecore.Globalization.Translate.Text("Help Me Choose") <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>
+              @{
+                itemName = @Sitecore.Globalization.Translate.Text("Help Me Choose") +
+                    "/" +
+                    @Sitecore.Globalization.Translate.Text("Exploring Your Options");
+              }
+
+
+              @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Exploring Your Options"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+
+
+              <ul class="dropDown3thLevel">
+                <li>
+                  @{
+                    itemName = @Sitecore.Globalization.Translate.Text("Help Me Choose") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Exploring Your Options") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Independent Living");
+                  }
+                  @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Independent Living"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+                </li>
+                <li>
+                  @{
+                    itemName = @Sitecore.Globalization.Translate.Text("Help Me Choose") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Exploring Your Options") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Independent Supportive Living");
+                  }
+                  @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Independent Supportive Living"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+                </li>
+                <li>
+                  @{
+                    itemName = @Sitecore.Globalization.Translate.Text("Help Me Choose") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Exploring Your Options") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Assisted Living");
+                  }
+                  @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Assisted Living"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+                </li>
+                <li>
+                  @{
+                    itemName = @Sitecore.Globalization.Translate.Text("Help Me Choose") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Exploring Your Options") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Memory Care");
+                  }
+                  @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Memory Care"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+                </li>
+                <li>
+                  @{
+                    itemName = @Sitecore.Globalization.Translate.Text("Help Me Choose") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Exploring Your Options") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Long Term Care");
+                  }
+                  @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Long Term Care"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+                </li>
+                <li>
+                  @{
+                    itemName = @Sitecore.Globalization.Translate.Text("Help Me Choose") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Exploring Your Options") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Retirement vs Long Term Care");
+                  }
+                  @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Retirement vs Long Term Care"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+                </li>
+
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <!--Our Services-->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@Sitecore.Globalization.Translate.Text("Our Services")<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>
+              @{
+                itemName = @Sitecore.Globalization.Translate.Text("Our Services") +
+                    "/" +
+                    @Sitecore.Globalization.Translate.Text("Dining Experience");
+              }
+              @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Dining Experience"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+            </li>
+            <li>
+              @{
+                itemName = @Sitecore.Globalization.Translate.Text("Our Services") +
+                    "/" +
+                    @Sitecore.Globalization.Translate.Text("Active Living");
+              }
+              @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Active Living"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+
+              <ul class="dropDown3thLevel">
+                <li>
+                  @{
+                    itemName = @Sitecore.Globalization.Translate.Text("Our Services") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Active Living") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("LiveNow");
+                  }
+                  @Html.ActionLink(@Sitecore.Globalization.Translate.Text("LiveNow"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+
+                </li>
+                <li>
+                  @{
+                    itemName = @Sitecore.Globalization.Translate.Text("Our Services") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Active Living") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Recreation");
+                  }
+                  @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Recreation"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+
+                </li>
+
+                <li>
+                  @{
+                    itemName = @Sitecore.Globalization.Translate.Text("Our Services") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Active Living") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Benefits of Socialization");
+                  }
+                  @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Benefits of Socialization"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+
+                </li>
+
+              </ul>
+            </li>
+
+            <li>
+              @{
+                itemName = @Sitecore.Globalization.Translate.Text("Our Services") +
+                    "/" +
+                    @Sitecore.Globalization.Translate.Text("Wellness and Support Services");
+              }
+              @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Wellness and Support Services"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+
+
+              <ul class="dropDown3thLevel">
+                <li>
+                  @{
+                    itemName = @Sitecore.Globalization.Translate.Text("Our Services") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Wellness and Support Services") +
+                        "/" +
+                        @Sitecore.Globalization.Translate.Text("Health and Wellness");
+                  }
+                  @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Health and Wellness"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+
+                </li>
+
+              </ul>
+            </li>
+
+
+            <li>
+
+              @{
+                itemName = @Sitecore.Globalization.Translate.Text("Our Services") +
+                    "/" +
+                    @Sitecore.Globalization.Translate.Text("Suites Types and Amenities");
+              }
+              @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Suites Types and Amenities"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+
+            </li>
+          </ul>
+        </li>
+
+        <!--Learn-->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@Sitecore.Globalization.Translate.Text("Learn")<span class="caret"></span></a>
+
+          <ul class="dropdown-menu">
+            <li>
+              @{
+                itemName = @Sitecore.Globalization.Translate.Text("Learn") +
+                    "/" +
+                    @Sitecore.Globalization.Translate.Text("Step-by-Step Resources");
+              }
+              @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Step-by-Step Resources"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+            </li>
+            <li>
+              @{
+                itemName = @Sitecore.Globalization.Translate.Text("Learn") +
+                    "/" +
+                    @Sitecore.Globalization.Translate.Text("Expert Advice");
+              }
+              @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Expert Advice"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+            </li>
+            <li>
+              @{
+                itemName = @Sitecore.Globalization.Translate.Text("Learn") +
+                    "/" +
+                    @Sitecore.Globalization.Translate.Text("Ask Edna");
+              }
+              @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Ask Edna"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+            </li>
+            <li>
+              @{
+                itemName = @Sitecore.Globalization.Translate.Text("Learn") +
+                    "/" +
+                    @Sitecore.Globalization.Translate.Text("Browse Topics");
+              }
+              @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Browse Topics"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+            </li>
+            <li>
+              @{
+                itemName = @Sitecore.Globalization.Translate.Text("Learn") +
+                    "/" +
+                    @Sitecore.Globalization.Translate.Text("Budget Assistant");
+              }
+              @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Budget Assistant"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+            </li>
+          </ul>
+        </li>
+        <li class="blogLink" id="cgtm_BlogLink">
+          @if (Model.Item.Language.Name == "en")
+          {
+            <a href="/blog/" target="_blank">@Sitecore.Globalization.Translate.Text("Blog")</a>
+          }
+          else
+          {
+            <a href="/fr/blogue/" target="_blank">@Sitecore.Globalization.Translate.Text("Blog")</a>
+          }
+        </li>
+        <!--About Us-->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@Sitecore.Globalization.Translate.Text("About Us")<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+
+            <li>
+              @{
+                itemName = @Sitecore.Globalization.Translate.Text("About Us") +
+                    "/" +
+                    @Sitecore.Globalization.Translate.Text("Welcome");
+              }
+              @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Welcome"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+            </li>
+            <li>
+              @{
+                itemName = @Sitecore.Globalization.Translate.Text("About Us") +
+                    "/" +
+                    @Sitecore.Globalization.Translate.Text("Our Vision Mission and Values");
+              }
+              @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Our Vision Mission and Values"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+            </li>
+            <li>
+              @{
+                itemName = @Sitecore.Globalization.Translate.Text("About Us") +
+                    "/" +
+                    @Sitecore.Globalization.Translate.Text("Our Leadership Team");
+              }
+              @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Our Leadership Team"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+            </li>
+            <li>
+              @{
+                itemName = @Sitecore.Globalization.Translate.Text("About Us") +
+                    "/" +
+                    @Sitecore.Globalization.Translate.Text("Wish of a Lifetime Canada");
+              }
+              @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Wish of a Lifetime Canada"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+            </li>
+            <li>
+              @{
+                itemName = @Sitecore.Globalization.Translate.Text("About Us") +
+                    "/" +
+                    @Sitecore.Globalization.Translate.Text("Moments that Matter");
+              }
+              @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Moments that Matter"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+            </li>
+
+            <li>
+              @{
+                itemName = @Sitecore.Globalization.Translate.Text("About Us") +
+                    "/" +
+                    @Sitecore.Globalization.Translate.Text("CorporateSocialResponsibility");
+              }
+              @Html.ActionLink(@Sitecore.Globalization.Translate.Text("CorporateSocialResponsibility"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+
+              @*<ul class="dropDown3thLevel">
+                  <li>
+                    @{
+                      itemName = @Sitecore.Globalization.Translate.Text("About Us") +
+                                      "/" +
+                                      @Sitecore.Globalization.Translate.Text("CorporateSocialResponsibility") +
+                                      "/" +
+                                      @Sitecore.Globalization.Translate.Text("2017 CSR Highlights");
+                    }
+                    @Html.ActionLink(@Sitecore.Globalization.Translate.Text("2017 CSR Highlights"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+
+                  </li>
+                  <li>
+                    @{
+                      itemName = @Sitecore.Globalization.Translate.Text("About Us") +
+                                      "/" +
+                                      @Sitecore.Globalization.Translate.Text("CorporateSocialResponsibility") +
+                                      "/" +
+                                      @Sitecore.Globalization.Translate.Text("2016 CSR Highlights");
+                    }
+                    @Html.ActionLink(@Sitecore.Globalization.Translate.Text("2016 CSR Highlights"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+
+                  </li>
+                </ul>*@
+              <ul class="dropDown3thLevel">
+                <li>
+                  @{
+                    itemName = @Sitecore.Globalization.Translate.Text("About Us") +
+                                    "/" +
+                                    @Sitecore.Globalization.Translate.Text("CorporateSocialResponsibility") +
+                                    "/" +
+                                    @Sitecore.Globalization.Translate.Text("corporate social responsibility program");
+                  }
+                  @Html.ActionLink(@Sitecore.Globalization.Translate.Text("corporate social responsibility program"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+
+                </li>
+              </ul>
+            </li>
+            <li>
+              @{
+                itemName = @Sitecore.Globalization.Translate.Text("About Us") +
+                    "/" +
+                    @Sitecore.Globalization.Translate.Text("Honour our Veterans");
+              }
+              @Html.ActionLink(@Sitecore.Globalization.Translate.Text("Honour our Veterans"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = Model.Item.Language.ToString() }, null)
+
+            </li>
+
+
+
+          </ul>
+        </li>
+        <li>
+          @{
+            itemName = @Sitecore.Globalization.Translate.Text("contact");
+          }
+          @Html.ActionLink(@Sitecore.Globalization.Translate.Text("contact"), "Index", "StaticPages", new { PartialItemUrlText = itemName.ToString(), StaticLanguage = @Sitecore.Context.Language.Name }, null)
+
+
+        </li>
+      </ul>
+
+      @Html.Sitecore().Placeholder("Page.Header.Center")
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

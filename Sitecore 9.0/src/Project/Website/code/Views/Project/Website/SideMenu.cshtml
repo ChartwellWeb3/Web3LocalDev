@@ -1,0 +1,70 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@model RenderingModel
+@using Sitecore.Mvc.Analytics.Extensions
+
+@Html.Sitecore().VisitorIdentification()
+
+@{
+
+  Sitecore.Links.UrlOptions options = new Sitecore.Links.UrlOptions();
+
+  options.LanguageEmbedding = Sitecore.Links.LanguageEmbedding.Always;
+  options.LanguageLocation = Sitecore.Links.LanguageLocation.FilePath;
+  options.UseDisplayName = true;
+
+  options.LowercaseUrls = true;
+
+}
+
+
+
+
+<div class="sidebar-nav hidden-print">
+  <div class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <span class="navbar-brand">@Sitecore.Globalization.Translate.Text("InThisSection")</span>
+    </div>
+    <div class="navbar-collapse collapse sidebar-navbar-collapse">
+      <ul class="nav navbar-nav quickLinksNav">
+        @foreach (var item in Model.Item.Parent.Children.ToArray())
+        {
+          <li class="quickLinksFirstLevel">
+            <a id="lnk-@item.DisplayName" href="@Sitecore.Links.LinkManager.GetItemUrl(@item,options).Replace(' ','-')">
+              @item.DisplayName
+            </a>
+
+            <ul>
+              @foreach (var child2 in @item.Children.ToArray())
+              {
+                <li>
+                  <a id="lnk-@item.DisplayName" class="quickLinksSecondLevel" href="@Sitecore.Links.LinkManager.GetItemUrl(@child2,options).Replace(' ','-')">
+                    @child2.DisplayName
+                  </a>
+                  <ul>
+                    @foreach (var child3 in child2.Children.ToArray())
+                    {
+                      <li>
+                        <a id="lnk-@item.DisplayName" href="@Sitecore.Links.LinkManager.GetItemUrl(@child3,options).Replace(' ','-')">
+                          @child3.DisplayName
+                        </a>
+
+                      </li>
+                    }
+                  </ul>
+                </li>
+              }
+            </ul>
+
+          </li>
+        }
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>

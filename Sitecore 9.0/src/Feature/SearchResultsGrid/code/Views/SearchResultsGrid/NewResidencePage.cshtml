@@ -1,0 +1,95 @@
+﻿@model  Chartwell.Feature.SearchResultsGrid.Models.PropertyCustomModel
+@using Sitecore.Mvc.Analytics.Extensions
+
+@Html.Sitecore().VisitorIdentification()
+
+@using Sitecore.Mvc
+@{
+  Layout = null;
+}
+
+<div class="staticPage">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1>@Sitecore.Globalization.Translate.Text("Our Newest Properties")</h1>
+      <hr />
+    </div><!-- / .col-md-12 -->
+  </div><!-- / .row -->
+
+  @foreach (var Province in Model.lstPropertyProvince)
+  {<div class="row">
+      <div class="col-md-12">
+        <div class="text-center">
+          <h3>@Province</h3>
+
+          <!-- main header -->
+          <hr />
+        </div>
+      </div>
+    </div><!-- / .row -->
+
+
+    <div class="row newResidence">
+      @foreach (var property in Model.lstProperty)
+      {
+
+        if (@Province == property.Province)
+        {
+          <!-- START ============================================================================ -->
+
+
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="panel panel-primary">
+
+              @if (String.IsNullOrEmpty(Convert.ToString(@Html.Sitecore().Field("Thumbnail Photo", @property.InnerItem))))
+              {
+                <a href="@property.PropertyItemUrl"><img class="img-responsive" src="@Url.Content("~/Assets/Images/Layout/Chartwell Pembroke Heritage Retirement Residence.jpg")" alt="@property.PropertyName"></a>
+              }
+              else
+              {
+                <a href="@property.PropertyItemUrl">  @Html.Sitecore().Field("Thumbnail Photo", @property.InnerItem, new { @class = "img-responsive", @mw = "275" })</a>
+
+              }
+
+
+              <div class="panel-heading">
+                <h3 class="panel-title"><a href="@property.PropertyItemUrl"><span>@property.PropertyName</span></a></h3>
+              </div>
+              <div class="panel-body">
+                <p>@Html.Raw(property.USP)</p>
+
+                <address>
+                  <div class="col-xs-2 col-sm-2 col-md-2">
+                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                  </div>
+                  <div class="col-xs-10 col-sm-10 col-md-10">
+                    @property.PropertyFormattedAddress
+                  </div>
+                </address>
+              </div>
+              <div class="panel-footer">
+                <h4>
+                  <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> <a href="tel:@property.PhoneNo">
+                    @property.PhoneNo
+                  </a>
+                </h4>
+
+                <div class="viewResBtn text-right">
+                  <a href="@property.PropertyItemUrl" type="button" class="btn btn-warning">@Sitecore.Globalization.Translate.Text("View Residence")</a>
+                </div>
+              </div>
+            </div><!-- / panel -->
+          </div><!-- / .col-md-4 -->
+
+
+          <!-- END ============================================================================ -->
+
+        }
+
+      }
+    </div><!-- / .row -->
+
+  }
+
+
+</div><!-- / .staticPage -->

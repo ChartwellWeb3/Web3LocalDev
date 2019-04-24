@@ -1,0 +1,29 @@
+﻿@model Chartwell.Feature.ExtractReport.Models.ExtractReportModel
+@using Sitecore.Mvc.Analytics.Extensions
+
+@Html.Sitecore().VisitorIdentification()
+
+<div id="LoginMsg" />
+<h1>Extract Report Login</h1>
+
+@using (Ajax.BeginForm("Index", "ExtractReport", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "LoginMsg" }, new { @id = "ExtractReportLogin" }))
+{
+
+  <div>
+    @Html.LabelFor(m => m.Username) :
+    @Html.TextBoxFor(m => m.Username)
+    @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+  </div>
+
+  <div>
+    @Html.LabelFor(m => m.Password)  :
+    @Html.PasswordFor(m => m.Password)
+    <br />
+    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <button type="submit" id="LoginSubmit" value="Login" class="btn btn-warning" style='width:100px'>@Sitecore.Globalization.Translate.Text("Login")</button>
+    </div>
+  </div>
+}

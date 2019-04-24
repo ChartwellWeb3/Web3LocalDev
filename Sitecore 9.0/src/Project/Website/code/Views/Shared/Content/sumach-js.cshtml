@@ -1,0 +1,120 @@
+<!-- include Unite Gallery Theme Files -->
+<script type="text/javascript" src="/Assets/js/vendor/jquery.mb.YTPlayer.js"></script>
+<script type="text/javascript" src="/Assets/unitegallery/js/unitegallery.min.js"></script>
+<link href="/Assets/unitegallery/css/unite-gallery.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Assets/unitegallery/themes/slider/ug-theme-slider.js"></script>
+<script type="text/javascript" src="/Assets/unitegallery/themes/tilesgrid/ug-theme-tilesgrid.js"></script>
+<link href="~/Assets/Styles/chartwell/legacy/sumach.css" rel="stylesheet" type="text/css" />
+
+<!-- Sumach Java Script Start EXTRA -->
+<script>
+  jQuery(document).ready(function () {
+    // video part
+    jQuery(".player").mb_YTPlayer();
+
+  });
+  // carousel part
+  $('.carousel').carousel({
+    interval: 10000
+  })
+  // navigation - active class
+  $(function () {
+    var pgurl = window.location.href.substr(window.location.href.lastIndexOf("/") + 1);
+    $("ul.nav li a").each(function () {
+      if ($(this).attr("href") == pgurl || $(this).attr("href") == '')
+        $(this).parent("li").addClass("active");
+      //console.log ("link from address bar is \"" + pgurl + "\"");
+    })
+  });
+  /* -----------------------------------------------------------------------------------
+  // add active class by click*/
+  $("ul.nav li a").click(function () {
+    $("ul.nav li").removeClass("active")
+    $(this).parent("li").addClass("active");
+  });
+
+  $("#toTop").click(function () {
+    $("ul.nav li").removeClass("active")
+    $("ul.nav li:first-child").addClass("active");
+  });
+  /* -----------------------------------------------------------------------------------
+  Smooth Scroll with jQuery
+  ----------------------------------------------------------------------------------- */
+  // Select all links with hashes in navigation and go to top button
+  $('.nav.navbar-nav a[href*="#"], #toTop[href*="#"]')
+    // Remove links that don't actually link to anything
+    .not('[href="#"]')
+    .not('[href="#0"]')
+    .click(function (event) {
+      // On-page links
+      if (
+        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+        &&
+        location.hostname == this.hostname
+      ) {
+        // Figure out element to scroll to
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        // Does a scroll target exist?
+        if (target.length) {
+          // Only prevent default if animation is actually gonna happen
+          event.preventDefault();
+          $('html, body').animate({
+            scrollTop: target.offset().top
+          }, 1000, function () {
+          // Callback after animation
+          // Must change focus!
+          /**/var $target = $(target);
+            $target.focus();
+            if ($target.is(":focus")) { // Checking if the target was focused
+              return false;
+            } else {
+              $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+              $target.focus(); // Set focus again
+            };
+          });
+        }
+      }
+    });
+  /* -----------------------------------------------------------------------------------
+  Show “Back to top” link element using jQuery when you scroll down
+  ----------------------------------------------------------------------------------- */
+  $(window).scroll(function () {
+    if ($(this).scrollTop()) {
+      $('#toTop').fadeIn();
+    } else {
+      $('#toTop').fadeOut();
+    }
+  });
+
+  // Unitegallery for gallery lightbox
+  jQuery(document).ready(function () {
+
+    jQuery("#gallery").unitegallery({
+      gallery_theme: "tilesgrid",
+      lightbox_type: "compact",
+      //grid_num_rows:1,
+      lightbox_show_textpanel: false,
+      tile_shadow_blur: 2,
+      tile_shadow_spread: 0,
+      tile_shadow_color: "#CCCCCC",
+      tile_overlay_opacity: 0.2,
+    });
+    jQuery("#galleryTopSlider").unitegallery({
+      gallery_theme: "slider",
+      gallery_width: "100%",
+      gallery_height: 500,
+      gallery_skin: "default",
+      gallery_play_interval: 3000,
+      slider_control_zoom: false,
+    });
+
+
+  });
+//fix for admin bar
+//    if ($('#ControlBar')[0])
+//       $('header').css('padding-top', '53px')
+
+
+</script>
+<!-- / Sumach Java Script End -->

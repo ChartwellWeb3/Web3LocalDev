@@ -1,0 +1,46 @@
+@import "_variables.scss";
+
+@keyframes topNavigationHover {
+  0% {
+    background-color: rgba(white, 0.25);
+    color: black;
+  }
+
+  60% {
+    background-color: rgba($midGray, 0.35);
+    color: $chartwellSecondary;
+  }
+
+  85% {
+    background-color: rgba($midGray, 0.15);
+    color: $chartwellSecondary;
+  }
+
+  to {
+    background-color: rgba(white, 0.15);
+    color: $chartwellPrimary;
+  }
+}
+
+@keyframes primaryToSecondaryToPrimaryBackgroundChange {
+  0% {
+    background-color: rgba($chartwellPrimary, 1);
+  }
+
+  60% {
+    background-color: rgba($chartwellPrimary, 0.25);
+  }
+
+
+  60% {
+    background-color: rgba($chartwellSecondary, 0.95);
+  }
+
+  85% {
+    background-color: rgba($chartwellSecondary, 0.25);
+  }
+
+  to {
+    background-color: rgba($chartwellPrimary, 1);
+  }
+}

@@ -1,0 +1,997 @@
+﻿    <style type="text/css">
+    .modal-body .promo, .modal-body blockquote p { font-size:16px; }
+	  .modal-body blockquote {border: 1px solid #efefef ;border-left: 10px solid #DDDDDD; }
+	  .placeHolderCircleCenter {       position: absolute;      width: 160px;       height: 160px;}
+	  
+    .placeHolderCircleSmall {    }
+    .placeHolderCircleSizeSmall {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+    }
+	  .placeHolderCircleSizeSmall img{ width: 100px; height:100px;  }
+    
+    .placeHolderCircleSize {
+      position: absolute;
+      width: 215px;
+      height: 215px;
+    }
+  
+    .placeHolderPosition_00 {
+      left: 40%;
+      top: 415px;
+    }
+    .placeHolderPosition_01 {
+      transition: all 0.5s ease;
+      animation-delay: 0.5s;
+      left: -30px;
+      top: -280px;
+    }
+    .placeHolderPosition_01-open {
+      transition: all 0.5s ease;
+      left: -30px;
+      top: -325px;
+    }
+    .placeHolderPosition_02 {
+      animation-delay: 2s;
+      transition: all 0.5s ease;
+      left: 180px;
+      top: -210px;
+    }
+    .placeHolderPosition_02-open {
+      transition: all 0.5s ease;
+      left: 225px;
+      top: -225px;
+    }
+    .placeHolderPosition_03 {
+      transition: all 0.5s ease;
+      animation-delay: 0.5s;
+      left: 230px;
+      top: -31px;
+		cursor: pointer;
+    }
+    .placeHolderPosition_03-open {
+      transition: all 0.5s ease;
+      left: 279px;
+      top: -16px;
+    }
+    .placeHolderPosition_04 {
+      transition: all 0.5s ease;
+      animation-delay: 0.5s;
+      left: 180px;
+      top: 160px;
+    }
+    .placeHolderPosition_04-open {
+      transition: all 0.5s ease;
+      left: 225px;
+      top: 210px;
+    }
+    .placeHolderPosition_05 {
+      transition: all 0.5s ease;
+      animation-delay: 0.5s;
+	  left: -28px;
+      top: 237px;
+    }
+    .placeHolderPosition_05-open {
+      transition: all 0.5s ease;
+      left: -28px;
+      top: 279px;
+    }
+    .placeHolderPosition_06 {
+      transition: all 0.5s ease;
+      animation-delay: 0.5s;
+      left: -245px;
+      top: 160px;
+    }
+    .placeHolderPosition_06-open {
+      transition: all 0.5s ease;
+      left: -265px;
+      top: 210px;
+    }
+    .placeHolderPosition_07 {
+      transition: all 0.5s ease;
+      animation-delay: 0.5s;
+      left: -285px;
+      top: -31px;
+    }
+    .placeHolderPosition_07-open {
+      transition: all 0.5s ease;
+      left: -342px;
+      top: -16px;
+    }
+    .placeHolderPosition_08 {
+      transition: all 0.5s ease;
+      animation-delay: 0.5s;
+      left: -245px;
+      top: -220px;
+    }
+    .placeHolderPosition_08-open {
+      transition: all 0.5s ease;
+      left: -265px;
+      top: -225px;
+    }
+    .level-1-Open {
+      color: red;
+      width: 50px;
+      height: 50px;
+    }
+	  
+/* loading animation */
+
+.fade-in {
+  opacity:0;  /* make things invisible upon start */
+  -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+	  }
+	  
+    .smallCircleGroup {display:none;}  
+    .placeHolderPosition_01Small {
+       left: 100px;
+       top: -120px;
+    }
+    .placeHolderPosition_02Small {
+       left: 180px;
+       top: -22px;
+    }
+    .placeHolderPosition_03Small {
+       left: 180px;
+       top: 100px;
+    }
+    .placeHolderPosition_04Small {
+       left: 100px;
+       top: 190px;
+    }
+    .placeHolderPosition_05Small {
+       left: -39px;
+       top: 190px;
+    }
+    .placeHolderPosition_06Small {
+       left: -120px;
+       top: 100px;
+    }
+    .placeHolderPosition_07Small {
+       left: -120px;
+       top: -22px;
+    }
+    .placeHolderPosition_08Small {
+       left: -39px;
+       top: -120px;
+    }
+	  .wrapperStories {background-image: url(https://chartwell.com/Assets/Images/stories/campaign_rev/stories-bg-level-1.png);  background-repeat: no-repeat; width: 100%; height:800px; clear: both;
+      transition: all 0.5s ease;}
+	  
+	  .wrapperStoriesOpen {background-image: url(https://chartwell.com/Assets/Images/stories/campaign_rev/stories-bg-level-2.png); 
+      transition: all 0.5s ease;}
+	  
+	  .wrapperMobile img{margin:0px auto;}
+	  .wrapperMobileMoreStories {margin:30px auto;}
+	  .colSm5 {width:20%; float: left; position: relative;    min-height: 1px;    padding-right: 15px;    padding-left: 15px;}
+/* MODAL settings */	  
+	  
+	  .titleStoryPop {color:#0073bc; margin-top:0px;}
+	  
+	  
+  </style>
+
+
+<div class="wrapperStories hidden-xs hidden-sm" >
+  <div class="placeHolderCircleCenter placeHolderPosition_00" id="centralCircle">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/parent-fr.png" alt="Jennifer 2007">
+    <div class="placeHolderCircle placeHolderCircleSize placeHolderPosition_01" id="Circle_level-1-1">
+      <a href="#" data-toggle="modal" data-target="#irene">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/irene-fr.png" alt="Irene Garcia">
+      </a>
+    </div>
+    <div class="placeHolderCircle placeHolderCircleSize placeHolderPosition_02" id="Circle_level-1-2">
+      <a href="#" data-toggle="modal" data-target="#jennifer">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/jenStory-fr.png" alt="Jennifer">
+      </a>
+	  </div>
+    <div class="placeHolderCircle placeHolderCircleSize placeHolderPosition_03" id="Circle_level-1-3">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/otherResidentsRev-fr.png" alt="more stories">
+     </div>
+    <div class="placeHolderCircle placeHolderCircleSize placeHolderPosition_04" id="Circle_level-1-4">
+      <a href="#" data-toggle="modal" data-target="#dave">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/dave-fr.png" alt="Dave">
+      </a>
+    </div>
+    <div class="placeHolderCircle placeHolderCircleSize placeHolderPosition_05" id="Circle_level-1-5">
+      <a href="#" data-toggle="modal" data-target="#stephanie">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/stephani-fr.png" alt="Stephanie">
+      </a>
+    </div>
+    <div class="placeHolderCircle placeHolderCircleSize placeHolderPosition_06" id="Circle_level-1-6">
+      <a href="#" data-toggle="modal" data-target="#michel">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/michel-fr.png" alt="Michel">
+      </a>
+    </div>
+    <div class="placeHolderCircle placeHolderCircleSize placeHolderPosition_07" id="Circle_level-1-7">
+      <a href="#" data-toggle="modal" data-target="#peter">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/peter-fr.png" alt="Peter">
+      </a>
+    </div>
+    <div class="placeHolderCircle placeHolderCircleSize placeHolderPosition_08" id="Circle_level-1-8">
+      <a href="#" data-toggle="modal" data-target="#ana">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/ana-fr.png" alt="Ana">
+      </a>
+    </div>
+    
+    <!-- Circles - level 2 - start -->
+    <div class="smallCircleGroup" >
+    <div class="placeHolderCircleSmall placeHolderCircleSizeSmall placeHolderPosition_01Small" id="Circle_level-2-1">
+      <a href="#" data-toggle="modal" data-target="#gerard">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/gerard-1.png" alt="Gerard">
+      </a>
+	  </div>
+    <div class="placeHolderCircleSmall placeHolderCircleSizeSmall placeHolderPosition_02Small" id="Circle_level-2-2">
+      <a href="#" data-toggle="modal" data-target="#flo">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/flo-fr.png" alt="Flo">
+      </a>
+	  </div>
+    <div class="placeHolderCircleSmall placeHolderCircleSizeSmall placeHolderPosition_03Small" id="Circle_level-2-3">
+      <a href="#" data-toggle="modal" data-target="#laura">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/laura-fr.png" alt="Laura">
+      </a>
+	  </div>
+    <div class="placeHolderCircleSmall placeHolderCircleSizeSmall placeHolderPosition_04Small" id="Circle_level-2-4">
+      <a href="#" data-toggle="modal" data-target="#ken">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/ken-fr.png" alt="Ken">
+      </a>
+	  </div>
+    <div class="placeHolderCircleSmall placeHolderCircleSizeSmall placeHolderPosition_05Small" id="Circle_level-2-5">
+      <a href="#" data-toggle="modal" data-target="#marie">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/marie-claire-1.png" alt="Maria">
+      </a>
+	  </div>
+    <div class="placeHolderCircleSmall placeHolderCircleSizeSmall placeHolderPosition_06Small" id="Circle_level-2-6">
+      <a href="#" data-toggle="modal" data-target="#james">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/james-fr.png" alt="James">
+      </a>
+	  </div>
+    <div class="placeHolderCircleSmall placeHolderCircleSizeSmall placeHolderPosition_07Small" id="Circle_level-2-7">
+      <a href="#" data-toggle="modal" data-target="#pierrette">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/pierrette-fr.png" alt="Pierrette">
+      </a>
+	  </div>
+    <div class="placeHolderCircleSmall placeHolderCircleSizeSmall placeHolderPosition_08Small" id="Circle_level-2-8">
+      <a href="#" data-toggle="modal" data-target="#lamarche">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/lamarche-fr.png" alt="Lamarche">
+      </a>
+	  </div>
+    </div><!-- / .smallCircleGroup -->
+    
+  </div><!-- / #centralCircle -->
+</div><!-- / .wrapperStories -->
+<div class="row wrapperMobile hidden-md hidden-lg">
+	<!--<div class="col-sm-12 text-center"><a href="#">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/parent-en.png" alt="Jennifer 2007" class="img-responsive" style="text-align:center; margin:10px auto;">
+      </a></div>-->
+	<div class="col-xs-6 col-sm-3">
+      <a href="#" data-toggle="modal" data-target="#irene" >
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/irene-fr.png" alt="Irene Garcia" class="img-responsive" >
+      </a></div>
+	<div class="col-xs-6 col-sm-3">
+      <a href="#" data-toggle="modal" data-target="#jennifer">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/parent-fr.png" alt="Jennifer" class="img-responsive" >
+      </a></div>
+	<div class="col-xs-6 col-sm-3">
+      <a href="#" data-toggle="modal" data-target="#dave">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/dave-fr.png" alt="Dave" class="img-responsive">
+      </a></div><!-- first mobile line end -->
+	<div class="col-xs-6 col-sm-3">
+      <a href="#" data-toggle="modal" data-target="#stephanie">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/stephani-fr.png" alt="Stephanie" class="img-responsive">
+      </a></div>
+	<div class="col-xs-6 col-sm-3">
+      <a href="#" data-toggle="modal" data-target="#michel">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/michel-fr.png" alt="Michel" class="img-responsive">
+      </a></div>
+	<div class="col-xs-6 col-sm-3">
+      <a href="#" data-toggle="modal" data-target="#peter">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/peter-fr.png" alt="Peter" class="img-responsive">
+      </a></div>
+	<div class="col-xs-6 col-sm-3">
+      <a href="#" data-toggle="modal" data-target="#ana">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/ana-fr.png" alt="Ana" class="img-responsive">
+      </a></div>
+	<div class="col-xs-6 col-sm-3">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/otherResidentsRev-fr.png" alt="more stories" class="img-responsive moreResMobile" ></div>
+</div><!-- row wrapperMobile -->
+<div class="row wrapperMobileMoreStories hidden-md hidden-lg" style="display:none;">
+	<div class="col-xs-4 ">
+      <a href="#" data-toggle="modal" data-target="#gerard">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/gerard-1.png" alt="Gerard" class="img-responsive">
+      </a>
+	  </div>
+	<div class="col-xs-4 ">
+      <a href="#" data-toggle="modal" data-target="#flo">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/flo-fr.png" alt="Flo" class="img-responsive">
+      </a>
+	  </div>
+	<div class="col-xs-4 ">
+      <a href="#" data-toggle="modal" data-target="#laura">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/laura-fr.png" alt="Laura" class="img-responsive">
+      </a>
+	  </div>
+	<div class="col-xs-offset-2 col-xs-4 ">
+      <a href="#" data-toggle="modal" data-target="#ken">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/ken-fr.png" alt="Ken" class="img-responsive">
+      </a>
+	  </div>
+	<div class="col-xs-4 ">
+      <a href="#" data-toggle="modal" data-target="#marie">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/marie-claire-1.png" alt="Marie" class="img-responsive">
+      </a>
+	  </div>
+	<div class="clearfix visible-xs-block"></div>
+	<div class="col-xs-4 ">
+      <a href="#" data-toggle="modal" data-target="#james">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/james-fr.png" alt="James" class="img-responsive">
+      </a>
+	  </div>
+	<div class="col-xs-4 ">
+      <a href="#" data-toggle="modal" data-target="#pierrette">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/pierrette-fr.png" alt="Pierrette" class="img-responsive">
+      </a>
+	  </div>
+	<div class="col-xs-4 ">
+      <a href="#" data-toggle="modal" data-target="#lamarche">
+      	<img src="https://chartwell.com/Assets/Images/stories/campaign_rev/lamarche-fr.png" alt="Lamarche" class="img-responsive">
+      </a>
+	  </div>
+</div><!-- row wrapperMobile -->
+	
+
+
+<script>
+    $(document).ready(function() {
+      $('.placeHolderPosition_03').click(function() {
+        //$('.placeHolderPosition_03').toggleClass("level-1-Open");
+        $('.placeHolderPosition_01').toggleClass("placeHolderPosition_01-open");
+        $('.placeHolderPosition_02').toggleClass("placeHolderPosition_02-open");
+        $('.placeHolderPosition_03').toggleClass("placeHolderPosition_03-open");
+        $('.placeHolderPosition_04').toggleClass("placeHolderPosition_04-open");
+        $('.placeHolderPosition_05').toggleClass("placeHolderPosition_05-open");
+        $('.placeHolderPosition_06').toggleClass("placeHolderPosition_06-open");
+        $('.placeHolderPosition_07').toggleClass("placeHolderPosition_07-open");
+        $('.placeHolderPosition_08').toggleClass("placeHolderPosition_08-open");
+        $('.wrapperStories').toggleClass("wrapperStoriesOpen");
+        
+        $( '.smallCircleGroup' ).toggle('fade', 500);
+      });
+	  // mobile version
+      $('.moreResMobile').click(function() {
+		  $( '.wrapperMobileMoreStories' ).toggle('fade', 300);
+		  $('html, body').animate({
+			'scrollTop' : $(".wrapperMobileMoreStories").position().top
+		}, 700);
+        
+      });
+    });
+  </script>
+<!-- <div class="placeHolderCircle placeHolderCircleSize level-1-Open" id="OpenedLevelel">Open</div> -->
+	
+	
+	
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="irene">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="close_irene">&times;</button>
+<h4 class="modal-title" id="myModalLabel" style="color: #0078bf; font-weight: bold;"><img alt="" src="https://chartwell.com/Assets/Images/Layout/favicon-16x16.png" />&nbsp;Dédiés à votre MIEUX-ÊTRE</h4>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-md-12">
+<blockquote class="promo">Mon emploi est tellement valorisant. Je me lève chaque matin et je me rends au travail en sachant que je passerai la journée à prendre soin des résidents que je considère comme des membres de ma famille.
+<p class="text-right"><strong>Responsable des soins de santé et de mieux-être <br>chez Chartwell depuis 2007</p></blockquote>
+</div>
+
+<div class="col-xs-12 col-md-4">
+	<div class="embed-responsive embed-responsive-16by9">
+	  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/1q-7sBwb27w?rel=0"></iframe>
+	</div>
+	<hr />
+	<a target="_blank" id="iconFacebook" href="https://www.facebook.com/chartwellretirement"><img alt="Chartwell Retirement Residences Facebook" src="https://chartwell.com/Assets/Images/Layout/social-facebook.png" /></a>
+	<a target="_blank" id="iconLinkedIn" href="https://www.linkedin.com/company/chartwell-retirement-residences"><img  alt="Chartwell Retirement Residences LinkedIn" src="https://chartwell.com/Assets/Images/Layout/social-linkedin.png" /></a>
+	<a target="_blank" id="iconGooglePlus" href="https://www.google.ca/search?q=Chartwell+Retirement+Residences+Mississauga"><img  alt="Chartwell Retirement Residences Google Plus" src="https://chartwell.com/Assets/Images/Layout/social-google.png" /></a>
+	<a target="_blank" id="iconYoutube" href="https://www.youtube.com/chartwellretirement"><img alt="Chartwell Retirement Residences Youtube" src="https://chartwell.com/Assets/Images/Layout/social-youtube.png" /></a>
+
+	<hr />
+</div><!-- / .col-xs-12 .col-md-4 -->
+<div class="col-xs-12 col-md-8">
+
+<h4 class="titleStoryPop">L'histoire d' Irene</h4>
+<p>Irene a vécu une enfance heureuse aux Philippines. Elle adorait grimper dans les arbres, cueillir des fruits frais avec ses frères et sœurs et jouer avec son grand-père. Sa grand-mère, beaucoup plus réservée, lui tenait toujours la main lorsqu’elle était malade ou qu’elle avait peur, un geste réconfortant qui l’a marquée pour toujours. Après s’être installée au Canada, Irene a décidé de devenir infirmière, un heureux changement de carrière pour elle, qui ne tirait plus de satisfaction de sa carrière en comptabilité. Aujourd’hui, Irene est directrice des soins de santé à la résidence Chartwell Langley Gardens et se consacre à rendre ses résidents heureux, que ce soit en leur offrant un soutien dans leurs activités quotidiennes ou simplement en leur tenant la main.</p>
+<br />
+<div class="btn btn-info" data-dismiss="modal" aria-hidden="true" id="read_more_irene">Lisez d'autres histoires</div>
+
+</div><!-- / .col-md-8 -->
+</div><!-- / .row -->
+</div><!-- / .modalbody -->
+</div><!-- / .modal-content -->
+
+</div><!-- / .modal-dialog -->
+</div><!-- / .modal irene -->
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="jennifer">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="close_jennifer">&times;</button>
+<h4 class="modal-title" style="color: #0078bf; font-weight: bold;"><img alt="favicon" src="https://chartwell.com/Assets/Images/Layout/favicon-16x16.png" />&nbsp;Laissez-nous faire partie de votre histoire</h4>
+</div>
+<div class="modal-body">
+<div class="row">
+<!-- <div class="col-md-12">
+<blockquote class="promo">
+<p class="text-right"><strong> </strong></p></blockquote>
+</div> -->
+
+<div class="col-xs-12 col-md-4">
+	<div class="embed-responsive embed-responsive-16by9">
+	  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/NX-00uJE-P4?rel=0"></iframe>
+	</div>
+	<hr />
+	<a target="_blank" id="iconFacebook" href="https://www.facebook.com/chartwellretirement"><img alt="Chartwell Retirement Residences Facebook" src="https://chartwell.com/Assets/Images/Layout/social-facebook.png" /></a>
+	<a target="_blank" id="iconLinkedIn" href="https://www.linkedin.com/company/chartwell-retirement-residences"><img  alt="Chartwell Retirement Residences LinkedIn" src="https://chartwell.com/Assets/Images/Layout/social-linkedin.png" /></a>
+	<a target="_blank" id="iconGooglePlus" href="https://www.google.ca/search?q=Chartwell+Retirement+Residences+Mississauga"><img  alt="Chartwell Retirement Residences Google Plus" src="https://chartwell.com/Assets/Images/Layout/social-google.png" /></a>
+	<a target="_blank" id="iconYoutube" href="https://www.youtube.com/chartwellretirement"><img alt="Chartwell Retirement Residences Youtube" src="https://chartwell.com/Assets/Images/Layout/social-youtube.png" /></a>
+
+	<hr />
+</div><!-- / .col-xs-12 .col-md-4 -->
+<div class="col-xs-12 col-md-8">
+
+<h4 class="titleStoryPop">Rita et Jean-Louis Lamarche</h4>
+<p>Rita et Jean-Louis forment un couple des plus épanouis. Ayant toujours mené une existence bien remplie, dans une maison qu’ils ont construite, agrandie de leurs mains et peuplée de souvenirs, ils se demandaient à quoi ils pourraient bien occuper leur retraite. Et pourtant… depuis qu’ils vivent chez Chartwell, ils disent manquer de temps pour satisfaire toutes leurs envies et leurs passions!</p>
+<br />
+<div class="btn btn-info" data-dismiss="modal" aria-hidden="true" id="read_more_jennifer">Lisez d'autres histoires</div>
+
+</div><!-- / .col-md-8 -->
+</div><!-- / .row -->
+</div><!-- / .modalbody -->
+</div><!-- / .modal-content -->
+
+</div><!-- / .modal-dialog -->
+</div><!-- / .modal Christa Jennifer -->
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="dave">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="close_dave">&times;</button>
+<h4 class="modal-title" style="color: #0078bf; font-weight: bold;"><img alt="favicon" src="https://chartwell.com/Assets/Images/Layout/favicon-16x16.png" />&nbsp;Dédiés à votre MIEUX-ÊTRE</h4>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-md-12">
+<blockquote class="promo">Avec un groupe de résidents, on fait parfois des tartes et des biscuits. Ils sont toujours très heureux lorsque leurs créations deviennent le dessert du jour au menu du dîner. 
+<p class="text-right"><strong>Dave Mueller, </strong>directeur des services alimentaires <br>chez Chartwell depuis 2011</p></blockquote>
+</div>
+
+<div class="col-xs-12 col-md-4">
+	<img src="~/Assets/Images/stories/campaign_rev/dave.jpg" class="img-responsive"/>
+	<hr />
+	<a target="_blank" id="iconFacebook" href="https://www.facebook.com/chartwellretirement"><img alt="Chartwell Retirement Residences Facebook" src="https://chartwell.com/Assets/Images/Layout/social-facebook.png" /></a>
+	<a target="_blank" id="iconLinkedIn" href="https://www.linkedin.com/company/chartwell-retirement-residences"><img  alt="Chartwell Retirement Residences LinkedIn" src="https://chartwell.com/Assets/Images/Layout/social-linkedin.png" /></a>
+	<a target="_blank" id="iconGooglePlus" href="https://www.google.ca/search?q=Chartwell+Retirement+Residences+Mississauga"><img  alt="Chartwell Retirement Residences Google Plus" src="https://chartwell.com/Assets/Images/Layout/social-google.png" /></a>
+	<a target="_blank" id="iconYoutube" href="https://www.youtube.com/chartwellretirement"><img alt="Chartwell Retirement Residences Youtube" src="https://chartwell.com/Assets/Images/Layout/social-youtube.png" /></a>
+
+	<hr />
+</div><!-- / .col-xs-12 .col-md-4 -->
+<div class="col-xs-12 col-md-8">
+
+<h4 class="titleStoryPop">L'histoire de Dave</h4>
+<p>Dave aimait regarder sa grand-mère s’affairer aux fourneaux apprenant ainsi de ses techniques utilisées pour préparer les repas en famille. Il a donc hérité de sa grand-mère un amour des arts de la table, en plus de quelques précieux ustensiles et livres de recettes. Dès son jeune âge Dave savait déjà qu’il voulait poursuivre une vocation professionnelle dans le monde culinaire. Maintenant directeur des services alimentaires à la résidence Chartwell Chatsworth, il se dévoue quotidiennement afin de préparer de délicieux repas pour les résidents friands de la bonne chair. Aujourd’hui, Dave explique que les résidents lui ont appris à être patient et compréhensif en plus de partager avec générosité leurs recettes maison et leur expérience de vie en matière de cuisine, tout comme le faisait sa grand-mère.</p>
+<br />
+<div class="btn btn-info" data-dismiss="modal" aria-hidden="true" id="read_more_dave">Lisez d'autres histoires</div>
+
+</div><!-- / .col-md-8 -->
+</div><!-- / .row -->
+</div><!-- / .modalbody -->
+</div><!-- / .modal-content -->
+
+</div><!-- / .modal-dialog -->
+</div><!-- / .modal Dave -->
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="stephanie">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="close_stephanie">&times;</button>
+<h4 class="modal-title" style="color: #0078bf; font-weight: bold;"><img alt="favicon" src="https://chartwell.com/Assets/Images/Layout/favicon-16x16.png" />&nbsp;Dédiés à votre MIEUX-ÊTRE</h4>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-md-12">
+<blockquote class="promo">Il faut aimer ça, ça ne s’apprend pas. Pour moi, c’est un don de soi! Ils voient l’essentiel de la vie, voient la personne que je suis, me font sentir belle et c’est un immense cadeau.
+<p class="text-right"><strong>Stéphanie Boulet, </strong>directrice des soins <br>chez Chartwell depuis 2013</p></blockquote>
+</div>
+
+<div class="col-xs-12 col-md-4">
+	<div class="embed-responsive embed-responsive-16by9">
+	  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ai94-doHqiY?rel=0"></iframe>
+	</div>
+	<hr />
+	<a target="_blank" id="iconFacebook" href="https://www.facebook.com/chartwellretirement"><img alt="Chartwell Retirement Residences Facebook" src="https://chartwell.com/Assets/Images/Layout/social-facebook.png" /></a>
+	<a target="_blank" id="iconLinkedIn" href="https://www.linkedin.com/company/chartwell-retirement-residences"><img  alt="Chartwell Retirement Residences LinkedIn" src="https://chartwell.com/Assets/Images/Layout/social-linkedin.png" /></a>
+	<a target="_blank" id="iconGooglePlus" href="https://www.google.ca/search?q=Chartwell+Retirement+Residences+Mississauga"><img  alt="Chartwell Retirement Residences Google Plus" src="https://chartwell.com/Assets/Images/Layout/social-google.png" /></a>
+	<a target="_blank" id="iconYoutube" href="https://www.youtube.com/chartwellretirement"><img alt="Chartwell Retirement Residences Youtube" src="https://chartwell.com/Assets/Images/Layout/social-youtube.png" /></a>
+
+	<hr />
+</div><!-- / .col-xs-12 .col-md-4 -->
+<div class="col-xs-12 col-md-8">
+
+<h4 class="titleStoryPop">L'histoire de Stéphanie</h4>
+<p>Pour Stéphanie, sa vocation d’aider les personnes âgées s’est déclarée très tôt. Jeune, en allant visiter son grand-père chaque dimanche à sa résidence pour aînés, elle savait que c’est ce qu’elle voulait faire : prendre soin des aînés, leur donner de l’amour et les aider à passer à travers les différentes étapes de la vie. Elle réalise aujourd’hui son rêve au sein de la résidence Chartwell Manoir et Cours de l’Atrium en tant que directrice des soins. Elle avoue que le fait de travailler dans une résidence lui a appris à vivre l’instant présent, à apprécier ce que l’on a et à aider son prochain. Son plus grand bonheur est de voir l’amour que ses résidents reçoivent, les voir sourire et entourés par leur famille.</p>
+<br />
+<div class="btn btn-info" data-dismiss="modal" aria-hidden="true" id="read_more_stephanie">Lisez d'autres histoires</div>
+
+</div><!-- / .col-md-8 -->
+</div><!-- / .row -->
+</div><!-- / .modalbody -->
+</div><!-- / .modal-content -->
+
+</div><!-- / .modal-dialog -->
+</div><!-- / .modal Stephanie -->
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="michel">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="close_michel">&times;</button>
+<h4 class="modal-title" style="color: #0078bf; font-weight: bold;"><img alt="favicon" src="https://chartwell.com/Assets/Images/Layout/favicon-16x16.png" />&nbsp;Dédiés à votre MIEUX-ÊTRE</h4>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-md-12">
+<blockquote class="promo">C’est gratifiant de savoir que ce que tu fais vaut de l’or!
+<p class="text-right"><strong>Michel Tremblay, </strong>responsable de la maintenance <br>chez Chartwell depuis 2010</p></blockquote>
+</div>
+
+<div class="col-xs-12 col-md-4">
+	<div class="embed-responsive embed-responsive-16by9">
+	  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/0jD-UJ70eO0?rel=0"></iframe>
+	</div>
+	<hr />
+	<a target="_blank" id="iconFacebook" href="https://www.facebook.com/chartwellretirement"><img alt="Chartwell Retirement Residences Facebook" src="https://chartwell.com/Assets/Images/Layout/social-facebook.png" /></a>
+	<a target="_blank" id="iconLinkedIn" href="https://www.linkedin.com/company/chartwell-retirement-residences"><img  alt="Chartwell Retirement Residences LinkedIn" src="https://chartwell.com/Assets/Images/Layout/social-linkedin.png" /></a>
+	<a target="_blank" id="iconGooglePlus" href="https://www.google.ca/search?q=Chartwell+Retirement+Residences+Mississauga"><img  alt="Chartwell Retirement Residences Google Plus" src="https://chartwell.com/Assets/Images/Layout/social-google.png" /></a>
+	<a target="_blank" id="iconYoutube" href="https://www.youtube.com/chartwellretirement"><img alt="Chartwell Retirement Residences Youtube" src="https://chartwell.com/Assets/Images/Layout/social-youtube.png" /></a>
+
+	<hr />
+</div><!-- / .col-xs-12 .col-md-4 -->
+<div class="col-xs-12 col-md-8">
+
+<h4 class="titleStoryPop">L'histoire de Michel</h4>
+<p>Michel est fier de ses racines Charlevoises. Ses grands-parents étaient très travaillants. Pendant que son grand-père devait souvent s'éloigner en tant que bûcheron, sa grand-mère s’occupait de la maisonnée. Ils lui ont inculqué l’importance du travail bien fait et du respect. Ce sont ces mêmes valeurs que Michel essaie de mettre, chaque jour, en pratique dans son travail comme directeur de la maintenance à Chartwell Faubourg Giffard. Il aime être au service des résidents et relever les défis. En plus de la reconnaissance constante des résidents, il en retire une grande satisfaction sachant que ceux-ci pourront profiter pleinement de leur appartement sans ces petits soucis.</p>
+<br />
+<div class="btn btn-info" data-dismiss="modal" aria-hidden="true" id="read_more_michel">Lisez d'autres histoires</div>
+
+</div><!-- / .col-md-8 -->
+</div><!-- / .row -->
+</div><!-- / .modalbody -->
+</div><!-- / .modal-content -->
+
+</div><!-- / .modal-dialog -->
+</div><!-- / .modal Michel -->
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="peter">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="close_peter">&times;</button>
+<h4 class="modal-title" style="color: #0078bf; font-weight: bold;"><img alt="favicon" src="https://chartwell.com/Assets/Images/Layout/favicon-16x16.png" />&nbsp;Dédiés à votre MIEUX-ÊTRE</h4>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-md-12">
+<blockquote class="promo">J’ai développé une relation très étroite avec mes résidents. Chaque matin, lorsque j’arrive au travail, j’ai hâte de les voir.
+<p class="text-right"><strong>Peter Puiatti, </strong>administrateur <br>chez Chartwell depuis 2013</p></blockquote>
+</div>
+
+<div class="col-xs-12 col-md-4">
+	<div class="embed-responsive embed-responsive-16by9">
+	  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/VaDI5mSrllQ?rel=0"></iframe>
+	</div>
+	<hr />
+	<a target="_blank" id="iconFacebook" href="https://www.facebook.com/chartwellretirement"><img alt="Chartwell Retirement Residences Facebook" src="https://chartwell.com/Assets/Images/Layout/social-facebook.png" /></a>
+	<a target="_blank" id="iconLinkedIn" href="https://www.linkedin.com/company/chartwell-retirement-residences"><img  alt="Chartwell Retirement Residences LinkedIn" src="https://chartwell.com/Assets/Images/Layout/social-linkedin.png" /></a>
+	<a target="_blank" id="iconGooglePlus" href="https://www.google.ca/search?q=Chartwell+Retirement+Residences+Mississauga"><img  alt="Chartwell Retirement Residences Google Plus" src="https://chartwell.com/Assets/Images/Layout/social-google.png" /></a>
+	<a target="_blank" id="iconYoutube" href="https://www.youtube.com/chartwellretirement"><img alt="Chartwell Retirement Residences Youtube" src="https://chartwell.com/Assets/Images/Layout/social-youtube.png" /></a>
+
+	<hr />
+</div><!-- / .col-xs-12 .col-md-4 -->
+<div class="col-xs-12 col-md-8">
+
+<h4 class="titleStoryPop">L'histoire de Peter</h4>
+<p>Pendant son enfance, Peter vivait dans une petite maison avec ses parents et grands-parents nés en Italie. Il se rappelle la maison familiale qui sentait toujours les bons petits plats que préparait avec amour sa grand-mère, qui le laissait toujours goûter... Figure matriarcale de la famille, elle a participé à la bonne éducation de Peter et de son frère en leur inculquant le respect envers les aînés et en leur enseignant de nombreuses tâches domestiques. Aujourd’hui, l’administrateur reconnaît à quel point ses grands-parents lui étaient précieux et redonne aux résidents de Chartwell Wenleigh pour rendre hommage à leur amour et à leur sacrifice. Il s’efforce également de reconnaître la vie formidable qu’ont eu ses résidents en écoutant leur histoire et en les remerciant de leur contribution à la société.</p>
+<br />
+<div class="btn btn-info" data-dismiss="modal" aria-hidden="true" id="read_more_peter">Lisez d'autres L'histoires</div>
+
+</div><!-- / .col-md-8 -->
+</div><!-- / .row -->
+</div><!-- / .modalbody -->
+</div><!-- / .modal-content -->
+
+</div><!-- / .modal-dialog -->
+</div><!-- / .modal Peter -->
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelAna" id="ana">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="close_ana">&times;</button>
+<h4 class="modal-title" id="myModalLabel" style="color: #0078bf; font-weight: bold;"><img alt="favicon" src="https://chartwell.com/Assets/Images/Layout/favicon-16x16.png" />&nbsp;</h4>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-md-12">
+<blockquote class="promo">Ce travail fait partie de moi; je ne peux pas m’imaginer faire autre chose.
+<p class="text-right"><strong>Ana McLean, </strong>directrice générale <br>chez Chartwell depuis 2005</p></blockquote>
+</div>
+
+<div class="col-xs-12 col-md-4">
+	<img src="~/Assets/Images/stories/campaign_rev/ana.png" class="img-responsive"/>
+	<hr />
+	<a target="_blank" id="iconFacebook" href="https://www.facebook.com/chartwellretirement"><img alt="Chartwell Retirement Residences Facebook" src="https://chartwell.com/Assets/Images/Layout/social-facebook.png" /></a>
+	<a target="_blank" id="iconLinkedIn" href="https://www.linkedin.com/company/chartwell-retirement-residences"><img  alt="Chartwell Retirement Residences LinkedIn" src="https://chartwell.com/Assets/Images/Layout/social-linkedin.png" /></a>
+	<a target="_blank" id="iconGooglePlus" href="https://www.google.ca/search?q=Chartwell+Retirement+Residences+Mississauga"><img  alt="Chartwell Retirement Residences Google Plus" src="https://chartwell.com/Assets/Images/Layout/social-google.png" /></a>
+	<a target="_blank" id="iconYoutube" href="https://www.youtube.com/chartwellretirement"><img alt="Chartwell Retirement Residences Youtube" src="https://chartwell.com/Assets/Images/Layout/social-youtube.png" /></a>
+
+	<hr />
+</div><!-- / .col-xs-12 .col-md-4 -->
+<div class="col-xs-12 col-md-8">
+
+<h4 class="titleStoryPop">L'histoire de Ana</h4>
+<p>Depuis sa tendre enfance, Ana rêvait d’aider les autres. Élevée par sa mère et deux grands-parents aimants, elle se rappelle affectueusement les repas maison que cuisinait sa grand-mère et se revoit accrocher le linge sur la corde à la ferme[MV1] . Ses rapports étroits avec les aînés dans sa propre famille se sont depuis transposés dans les liens personnels qu’elle a noués avec les résidents de Chartwell Kamloops. Bien qu’en tant que directrice générale elle soit chargée d’assurer la gestion de son équipe et du bon fonctionnement de la résidence, Ana prend plaisir à faire connaissance avec ses résidents et prend toujours le temps d’écouter leurs histoires inspirantes.</p>
+<br />
+<div class="btn btn-info" data-dismiss="modal" aria-hidden="true" id="read_more_ana">Lisez d'autres histoires</div>
+
+</div><!-- / .col-md-8 -->
+</div><!-- / .row -->
+</div><!-- / .modalbody -->
+</div><!-- / .modal-content -->
+
+</div><!-- / .modal-dialog -->
+</div><!-- / .modal Ana -->
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="gerard">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="close_gerard">&times;</button>
+<h4 class="modal-title" style="color: #0078bf; font-weight: bold;"><img alt="favicon" src="https://chartwell.com/Assets/Images/Layout/favicon-16x16.png" />&nbsp;Laissez-nous faire partie de votre histoire</h4>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-md-12">
+<blockquote class="promo">Dans ce temps-là, on avait acheté notre première télévision au magasin Eaton. On dirait que c’était il y a vraiment longtemps, surtout quand on constate à quel point le monde de la technologie a changé depuis.
+<p class="text-right"><strong>Gerard Serre, </strong>résident Chartwell depuis 2014</p></blockquote>
+</div>
+
+<div class="col-xs-12 col-md-4">
+	
+	<img src="~/Assets/Images/stories/campaign_rev/gerard.png" class="img-responsive"/>
+	<hr />
+	<a target="_blank" id="iconFacebook" href="https://www.facebook.com/chartwellretirement"><img alt="Chartwell Retirement Residences Facebook" src="https://chartwell.com/Assets/Images/Layout/social-facebook.png" /></a>
+	<a target="_blank" id="iconLinkedIn" href="https://www.linkedin.com/company/chartwell-retirement-residences"><img  alt="Chartwell Retirement Residences LinkedIn" src="https://chartwell.com/Assets/Images/Layout/social-linkedin.png" /></a>
+	<a target="_blank" id="iconGooglePlus" href="https://www.google.ca/search?q=Chartwell+Retirement+Residences+Mississauga"><img  alt="Chartwell Retirement Residences Google Plus" src="https://chartwell.com/Assets/Images/Layout/social-google.png" /></a>
+	<a target="_blank" id="iconYoutube" href="https://www.youtube.com/chartwellretirement"><img alt="Chartwell Retirement Residences Youtube" src="https://chartwell.com/Assets/Images/Layout/social-youtube.png" /></a>
+
+	<hr />
+</div><!-- / .col-xs-12 .col-md-4 -->
+<div class="col-xs-12 col-md-8">
+
+<h4 class="titleStoryPop">L'histoire de Gerard</h4>
+<p>Gerard et sa femme sont tricotés serrés! Ils se sont mariés en 1952 et sont à la découverte du monde depuis. Dans la maladie comme dans la santé, ils ont été aux côtés l’un de l’autre. Une fois unis et accompagnés de leurs enfants, ils ont passé beaucoup de temps loin de nos rudes hivers canadiens, allant souvent en Floride à cette époque de l’année. Même si la carrière de Gerard en tant que chargé de l’imprimerie à l’Organisation de l’Aviation Civile Internationale pendant 33 ans le comblait, il fut heureux de prendre sa retraite en 1983 afin de commencer un nouveau chapitre de sa vie.</p>
+<br />
+<div class="btn btn-info" data-dismiss="modal" aria-hidden="true" id="read_more_gerard">Lisez d'autres histoires</div>
+
+</div><!-- / .col-md-8 -->
+</div><!-- / .row -->
+</div><!-- / .modalbody -->
+</div><!-- / .modal-content -->
+
+</div><!-- / .modal-dialog -->
+</div><!-- / .modal Gerard -->
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="flo">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="close_flo">&times;</button>
+<h4 class="modal-title" style="color: #0078bf; font-weight: bold;"><img alt="favicon" src="https://chartwell.com/Assets/Images/Layout/favicon-16x16.png" />&nbsp;Laissez-nous faire partie de votre histoire</h4>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-md-12">
+<blockquote class="promo">Quand je suis arrivée ici, je me suis présentée à tout le monde. Trois jours plus tard, ils savaient tous mon nom.
+<p class="text-right"><strong>Florence Camerano, </strong>ésidente Chartwell depuis 2013</p></blockquote>
+</div>
+
+<div class="col-xs-12 col-md-4">
+	<div class="embed-responsive embed-responsive-16by9">
+	  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/KJIXUfDpb8Q?rel=0"></iframe>
+		
+	</div>
+	<hr />
+	<a target="_blank" id="iconFacebook" href="https://www.facebook.com/chartwellretirement"><img alt="Chartwell Retirement Residences Facebook" src="https://chartwell.com/Assets/Images/Layout/social-facebook.png" /></a>
+	<a target="_blank" id="iconLinkedIn" href="https://www.linkedin.com/company/chartwell-retirement-residences"><img  alt="Chartwell Retirement Residences LinkedIn" src="https://chartwell.com/Assets/Images/Layout/social-linkedin.png" /></a>
+	<a target="_blank" id="iconGooglePlus" href="https://www.google.ca/search?q=Chartwell+Retirement+Residences+Mississauga"><img  alt="Chartwell Retirement Residences Google Plus" src="https://chartwell.com/Assets/Images/Layout/social-google.png" /></a>
+	<a target="_blank" id="iconYoutube" href="https://www.youtube.com/chartwellretirement"><img alt="Chartwell Retirement Residences Youtube" src="https://chartwell.com/Assets/Images/Layout/social-youtube.png" /></a>
+
+	<hr />
+</div><!-- / .col-xs-12 .col-md-4 -->
+<div class="col-xs-12 col-md-8">
+
+<h4 class="titleStoryPop">L'histoire de Flo</h4>
+<p>Ça fait trois ans que Florence a decidé de vendre sa maison et d’emménager dans une résidence Chartwell. Dire qu’elle s’est bien intégrée dans sa nouvelle maison, c’est peu dire! Florence parle couramment trois langues et c’est une excellente communicatrice. Parlez-en à Rita: elles sont comme deux sœurs siamoises, chacune est impatiente de parler de ses enfants et petits-enfants pendant leurs dîners et parties de cartes. Pour Florence, même si elle n’a pas grandi avec Rita, c’est comme si c’était son amie depuis toujours.</p>
+<br />
+<div class="btn btn-info" data-dismiss="modal" aria-hidden="true" id="read_more_flo">Lisez d'autres histoires</div>
+
+</div><!-- / .col-md-8 -->
+</div><!-- / .row -->
+</div><!-- / .modalbody -->
+</div><!-- / .modal-content -->
+
+</div><!-- / .modal-dialog -->
+</div><!-- / .modal Flo -->
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="laura">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="close_laura">&times;</button>
+<h4 class="modal-title" style="color: #0078bf; font-weight: bold;"><img alt="favicon" src="https://chartwell.com/Assets/Images/Layout/favicon-16x16.png" />&nbsp;Laissez-nous faire partie de votre histoire</h4>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-md-12">
+<blockquote class="promo">Je connaissais plusieurs personnes avant d’emménager, ça a influencé ma décision. Je me suis fait encore plus d’amis depuis.
+<p class="text-right"><strong>Laura Wallace, </strong>résidente Chartwell depuis 2013</p></blockquote>
+</div>
+
+<div class="col-xs-12 col-md-4">
+	<div class="embed-responsive embed-responsive-16by9">
+	  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zmpw3lAEYEs?rel=0"></iframe>
+	</div>
+<p>Vidéo seulement disponible en anglais</p>
+	<hr />
+	<a target="_blank" id="iconFacebook" href="https://www.facebook.com/chartwellretirement"><img alt="Chartwell Retirement Residences Facebook" src="https://chartwell.com/Assets/Images/Layout/social-facebook.png" /></a>
+	<a target="_blank" id="iconLinkedIn" href="https://www.linkedin.com/company/chartwell-retirement-residences"><img  alt="Chartwell Retirement Residences LinkedIn" src="https://chartwell.com/Assets/Images/Layout/social-linkedin.png" /></a>
+	<a target="_blank" id="iconGooglePlus" href="https://www.google.ca/search?q=Chartwell+Retirement+Residences+Mississauga"><img  alt="Chartwell Retirement Residences Google Plus" src="https://chartwell.com/Assets/Images/Layout/social-google.png" /></a>
+	<a target="_blank" id="iconYoutube" href="https://www.youtube.com/chartwellretirement"><img alt="Chartwell Retirement Residences Youtube" src="https://chartwell.com/Assets/Images/Layout/social-youtube.png" /></a>
+
+	<hr />
+</div><!-- / .col-xs-12 .col-md-4 -->
+<div class="col-xs-12 col-md-8">
+
+<h4 class="titleStoryPop">L'histoire de Laura</h4>
+<p>Laura ne s’est jamais considérée comme une fille de fermier. Même si elle tondait la pelouse, elle admet avoir préféré magasiner, ce qu’elle faisait parfois à la place! Après avoir gradué comme infirmière, Laura a rencontré son mari lors d’un « blind date » : leur amour est né sur le plancher de danse. Ensemble, ils ont eu 6 enfants. Maintenant qu’ils ont grandi et qu’elle peut avoir du temps pour elle, Laura prend le temps de discuter avec ses amis au téléphone, visite sa petite-fille, et joue aux cartes, en plus de s’adonner au magasinage avec ses amis de la résidence.</p>
+<br />
+<div class="btn btn-info" data-dismiss="modal" aria-hidden="true" id="read_more_laura">Read More Stories</div>
+
+</div><!-- / .col-md-8 -->
+</div><!-- / .row -->
+</div><!-- / .modalbody -->
+</div><!-- / .modal-content -->
+
+</div><!-- / .modal-dialog -->
+</div><!-- / .modal Laura -->
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="ken">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="close_ken">&times;</button>
+<h4 class="modal-title" style="color: #0078bf; font-weight: bold;"><img alt="favicon" src="https://chartwell.com/Assets/Images/Layout/favicon-16x16.png" />&nbsp;Laissez-nous faire partie de votre histoire</h4>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-md-12">
+<blockquote class="promo">Ce qui m’a convaincu d’emménager ici, c’est la chaleur humaine: les employés et résidents m’ont accueilli à bras ouverts. 
+<p class="text-right"><strong>Ken Haslam, </strong>résident Chartwell depuis 2013</p></blockquote>
+</div>
+
+<div class="col-xs-12 col-md-4">
+	<div class="embed-responsive embed-responsive-16by9">
+	  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/I70dbtpT6xk?rel=0"></iframe>
+	</div>
+<p>Vidéo seulement disponible en anglais</p>
+	<hr />
+	<a target="_blank" id="iconFacebook" href="https://www.facebook.com/chartwellretirement"><img alt="Chartwell Retirement Residences Facebook" src="https://chartwell.com/Assets/Images/Layout/social-facebook.png" /></a>
+	<a target="_blank" id="iconLinkedIn" href="https://www.linkedin.com/company/chartwell-retirement-residences"><img  alt="Chartwell Retirement Residences LinkedIn" src="https://chartwell.com/Assets/Images/Layout/social-linkedin.png" /></a>
+	<a target="_blank" id="iconGooglePlus" href="https://www.google.ca/search?q=Chartwell+Retirement+Residences+Mississauga"><img  alt="Chartwell Retirement Residences Google Plus" src="https://chartwell.com/Assets/Images/Layout/social-google.png" /></a>
+	<a target="_blank" id="iconYoutube" href="https://www.youtube.com/chartwellretirement"><img alt="Chartwell Retirement Residences Youtube" src="https://chartwell.com/Assets/Images/Layout/social-youtube.png" /></a>
+
+	<hr />
+</div><!-- / .col-xs-12 .col-md-4 -->
+<div class="col-xs-12 col-md-8">
+
+<h4 class="titleStoryPop">L'histoire de Ken</h4>
+<p>Lorsque l’on rencontre Ken, il n’est pas surprenant d’apprendre qu’il était annonceur à la radio et que sa voix grave attirait les auditeurs. Ayant à peine gradué du secondaire, Ken est engagé par Radio-Canada, et travaille pour une émission de radio aux Pays-Bas. Peu après son arrivée, Ken rencontre sa future femme – une belle danoise au prénom de Nora – à la bibliothèque des bandes sonores de la compagnie. Il parle de cette rencontre comme un beau hasard. Aujourd’hui, Ken est détermine à célébrer chaque jour en humour, et son éclat de rire retentissant fait écho dans les murs de la résidence.</p>
+<br />
+<div class="btn btn-info" data-dismiss="modal" aria-hidden="true" id="read_more_ken">Lisez d'autres histoires</div>
+
+</div><!-- / .col-md-8 -->
+</div><!-- / .row -->
+</div><!-- / .modalbody -->
+</div><!-- / .modal-content -->
+
+</div><!-- / .modal-dialog -->
+</div><!-- / .modal Ken -->
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="marie">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="close_marie">&times;</button>
+<h4 class="modal-title" style="color: #0078bf; font-weight: bold;"><img alt="favicon" src="https://chartwell.com/Assets/Images/Layout/favicon-16x16.png" />&nbsp;Laissez-nous faire partie de votre histoire</h4>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-md-12">
+<blockquote class="promo">Je voulais vivre en résidence pour être en sécurité, pour être bien entourée. S’il m’arrivait quelque chose, je ne serais pas toute seule.
+<p class="text-right"><strong>Marie-Claire Légaré, </strong>résidente Chartwell depuis 2007</p></blockquote>
+</div>
+
+<div class="col-xs-12 col-md-4">
+	<div class="embed-responsive embed-responsive-16by9">
+	  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/T7o_t6vcASM?rel=0"></iframe>
+	</div>
+	<hr />
+	<a target="_blank" id="iconFacebook" href="https://www.facebook.com/chartwellretirement"><img alt="Chartwell Retirement Residences Facebook" src="https://chartwell.com/Assets/Images/Layout/social-facebook.png" /></a>
+	<a target="_blank" id="iconLinkedIn" href="https://www.linkedin.com/company/chartwell-retirement-residences"><img  alt="Chartwell Retirement Residences LinkedIn" src="https://chartwell.com/Assets/Images/Layout/social-linkedin.png" /></a>
+	<a target="_blank" id="iconGooglePlus" href="https://www.google.ca/search?q=Chartwell+Retirement+Residences+Mississauga"><img  alt="Chartwell Retirement Residences Google Plus" src="https://chartwell.com/Assets/Images/Layout/social-google.png" /></a>
+	<a target="_blank" id="iconYoutube" href="https://www.youtube.com/chartwellretirement"><img alt="Chartwell Retirement Residences Youtube" src="https://chartwell.com/Assets/Images/Layout/social-youtube.png" /></a>
+
+	<hr />
+</div><!-- / .col-xs-12 .col-md-4 -->
+<div class="col-xs-12 col-md-8">
+
+<h4 class="titleStoryPop">L'histoire de Marie-Claire</h4>
+<p>Marie-Claire a grandi à Saint-Jérôme dans une famille de 9 enfants dont elle et son jeune frère étaient les benjamins. Ils développèrent une belle complicité au milieu de la vie familiale et le quotidien à la maison mené par une mère dont la spécialité était de d’organiser de grands repas en famille et de belles soirées lors du temps des Fêtes. Comblée par tout cet amour depuis son enfance, Marie-Claire devient une véritable figure féminine pour les enfants du foyer social où elle travaille comme éducatrice. Elle attire également l’attention de Jules, un jeune homme âgé de 24 ans qui l’approche pour l’inviter à sortir. Rapidement, ils se marient et ont trois belles filles. Malgré le fait que la vie lui ait arraché son Jules trop rapidement, Marie-Claire apprécie leurs 13 années de bonheur passées ensemble. Aujourd’hui, elle dit avec émotions que ce fut son grand amour et prend plaisir chaque jour à partager sa riche expérience de vie avec ses amies de la résidence pour retraités.</p>
+<br />
+<div class="btn btn-info" data-dismiss="modal" aria-hidden="true" id="read_more_marie">Lisez d'autres histoires</div>
+
+</div><!-- / .col-md-8 -->
+</div><!-- / .row -->
+</div><!-- / .modalbody -->
+</div><!-- / .modal-content -->
+
+</div><!-- / .modal-dialog -->
+</div><!-- / .modal Marie -->
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="james">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="close_james">&times;</button>
+<h4 class="modal-title" style="color: #0078bf; font-weight: bold;"><img alt="favicon" src="https://chartwell.com/Assets/Images/Layout/favicon-16x16.png" />&nbsp;Laissez-nous faire partie de votre histoire</h4>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-md-12">
+<blockquote class="promo">La seule chose qui me manque ici, c’est ma femme. Notre mariage a duré 61 ans. Ensemble, on était heureux.
+<p class="text-right"><strong>James Macauley, </strong>résident Chartwell depuis 2011</p></blockquote>
+</div>
+
+<div class="col-xs-12 col-md-4">
+	<img src="~/Assets/Images/stories/campaign_rev/james.png" class="img-responsive"/>
+	<hr />
+	<a target="_blank" id="iconFacebook" href="https://www.facebook.com/chartwellretirement"><img alt="Chartwell Retirement Residences Facebook" src="https://chartwell.com/Assets/Images/Layout/social-facebook.png" /></a>
+	<a target="_blank" id="iconLinkedIn" href="https://www.linkedin.com/company/chartwell-retirement-residences"><img  alt="Chartwell Retirement Residences LinkedIn" src="https://chartwell.com/Assets/Images/Layout/social-linkedin.png" /></a>
+	<a target="_blank" id="iconGooglePlus" href="https://www.google.ca/search?q=Chartwell+Retirement+Residences+Mississauga"><img  alt="Chartwell Retirement Residences Google Plus" src="https://chartwell.com/Assets/Images/Layout/social-google.png" /></a>
+	<a target="_blank" id="iconYoutube" href="https://www.youtube.com/chartwellretirement"><img alt="Chartwell Retirement Residences Youtube" src="https://chartwell.com/Assets/Images/Layout/social-youtube.png" /></a>
+
+	<hr />
+</div><!-- / .col-xs-12 .col-md-4 -->
+<div class="col-xs-12 col-md-8">
+
+<h4 class="titleStoryPop">James's Story</h4>
+<p>Même si le père de James a été joueur professionnel de soccer en Écosse, James est pourtant tombé en amour avec un autre sport: le hockey. Membre de la Légion royale canadienne, James a rencontré sa femme à la soirée dansante suite à la parade de l’armistice. Plus tard, ils se marièrent et eurent deux filles. À l’origine, James et sa famille habitaient à Montréal. Plus tard, ils ont déménagé en Ontario pour y être pendant environ dix ans. Aujourd’hui même si James est de retour à Montréal, il est toujours un grand fan des Maple Leafs. Peu après avoir emménagé à la résidence, James a rencontré par hasard un voisin qui avait déjà habité sur sa rue pendant plusieurs années. Ils sont de bons amis depuis ce moment.</p>
+<br />
+<div class="btn btn-info" data-dismiss="modal" aria-hidden="true" id="read_more_james">Lisez d'autres histoires</div>
+
+</div><!-- / .col-md-8 -->
+</div><!-- / .row -->
+</div><!-- / .modalbody -->
+</div><!-- / .modal-content -->
+
+</div><!-- / .modal-dialog -->
+</div><!-- / .modal James -->
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="pierrette">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="close_pierrette">&times;</button>
+<h4 class="modal-title" style="color: #0078bf; font-weight: bold;"><img alt="favicon" src="https://chartwell.com/Assets/Images/Layout/favicon-16x16.png" />&nbsp;Laissez-nous faire partie de votre histoire</h4>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-md-12">
+<blockquote class="promo">Pour moi, créer des liens avec les autres, c’est essentiel. Ici, il y toujours un party qui permet de se faire des nouveaux amis!
+<p class="text-right"><strong>Pierrette Villemaire, </strong> résidente Chartwell depuis 2008</p></blockquote>
+</div>
+
+<div class="col-xs-12 col-md-4">
+	<div class="embed-responsive embed-responsive-16by9">
+	  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/iRiGUbTn17w?rel=0"></iframe>
+	</div>
+	<hr />
+	<a target="_blank" id="iconFacebook" href="https://www.facebook.com/chartwellretirement"><img alt="Chartwell Retirement Residences Facebook" src="https://chartwell.com/Assets/Images/Layout/social-facebook.png" /></a>
+	<a target="_blank" id="iconLinkedIn" href="https://www.linkedin.com/company/chartwell-retirement-residences"><img  alt="Chartwell Retirement Residences LinkedIn" src="https://chartwell.com/Assets/Images/Layout/social-linkedin.png" /></a>
+	<a target="_blank" id="iconGooglePlus" href="https://www.google.ca/search?q=Chartwell+Retirement+Residences+Mississauga"><img  alt="Chartwell Retirement Residences Google Plus" src="https://chartwell.com/Assets/Images/Layout/social-google.png" /></a>
+	<a target="_blank" id="iconYoutube" href="https://www.youtube.com/chartwellretirement"><img alt="Chartwell Retirement Residences Youtube" src="https://chartwell.com/Assets/Images/Layout/social-youtube.png" /></a>
+
+	<hr />
+</div><!-- / .col-xs-12 .col-md-4 -->
+<div class="col-xs-12 col-md-8">
+
+<h4 class="titleStoryPop">L'histoire de Pierrette</h4>
+<p>Pierrette aime les partys. Elle a aussi beaucoup d’amis. Elle a voyagé le monde avec son amour de mari et leurs trois enfants. Pierrette est heureuse d’avoir rejoint la fête en emménageant dans une résidence Chartwell. Depuis son arrivée, elle chante avec ses amies entre ses activités et les visites de ses petits-enfants. Pierrette trouve que le monde a beaucoup changé depuis qu’elle est enfant, mais ce qui n’a pas changé, c’est sa joie de vivre.</p>
+<br />
+<div class="btn btn-info" data-dismiss="modal" aria-hidden="true" id="read_more_pierrette">Lisez d'autres histoires</div>
+
+</div><!-- / .col-md-8 -->
+</div><!-- / .row -->
+</div><!-- / .modalbody -->
+</div><!-- / .modal-content -->
+
+</div><!-- / .modal-dialog -->
+</div><!-- / .modal Pierrette -->
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="lamarche">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="close_lamarche">&times;</button>
+<h4 class="modal-title" style="color: #0078bf; font-weight: bold;"><img alt="favicon" src="https://chartwell.com/Assets/Images/Layout/favicon-16x16.png" />&nbsp;Laissez-nous faire partie de votre histoire</h4>
+</div>
+<div class="modal-body">
+<div class="row">
+  <div class="col-md-12">
+    <!-- <blockquote class="promo">n a passé 58 ans dans notre maison familiale. Ici à la résidence, on reçoit tout sur un plateau d’argent, du bonjour des employés au simple sourire. On est comblés.
+  <p class="text-right"><strong>Rita et Jean-Louis Lamarche, </strong>résidents Chartwell depuis 2012</p></blockquote> -->
+  </div>
+
+    <div class="col-xs-12 col-md-4">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/RKmVDOgdcf4?rel=0"></iframe>
+      </div>
+      <hr />
+      <a target="_blank" id="iconFacebook" href="https://www.facebook.com/chartwellretirement"><img alt="Chartwell Retirement Residences Facebook" src="https://chartwell.com/Assets/Images/Layout/social-facebook.png" /></a>
+      <a target="_blank" id="iconLinkedIn" href="https://www.linkedin.com/company/chartwell-retirement-residences"><img alt="Chartwell Retirement Residences LinkedIn" src="https://chartwell.com/Assets/Images/Layout/social-linkedin.png" /></a>
+      <a target="_blank" id="iconGooglePlus" href="https://www.google.ca/search?q=Chartwell+Retirement+Residences+Mississauga"><img alt="Chartwell Retirement Residences Google Plus" src="https://chartwell.com/Assets/Images/Layout/social-google.png" /></a>
+      <a target="_blank" id="iconYoutube" href="https://www.youtube.com/chartwellretirement"><img alt="Chartwell Retirement Residences Youtube" src="https://chartwell.com/Assets/Images/Layout/social-youtube.png" /></a>
+
+      <hr />
+    </div><!-- / .col-xs-12 .col-md-4 -->
+    <div class="col-xs-12 col-md-8">
+
+      <h4 class="titleStoryPop">L'histoire de Rita et Jean-Louis</h4>
+      <p>L’histoire de Jean-Louis et Rita est parsemée de moments de bonheur et de tendresse. Enfants, ils étaient chacun près de leurs parents. Jean-Louis fera d’ailleurs la demande en mariage traditionnelle auprès du père de Rita avant de lui faire la grande demande. Dans leurs propres mots, une fois mariés, Rita et Jean-Louis ont vécu dans une maison d’amour construite pierre par pierre des mains de Jean-Louis. Celui-ci travaillait dans la construction et a mis beaucoup d’efforts afin de faire en sorte que peu après leur mariage ayant eu lieu à l’automne, le couple emménage dans la nouvelle demeure. Tous deux s’entendent pour dire qu’ils sont moins fatigués depuis qu’ils ont emménagé en résidence et qu’ils n’ont pas le temps de s’ennuyer entre les cours d’aquaforme, les soirées thématiques et les cours de Scrabble.</p>
+      <br />
+      <div class="btn btn-info" data-dismiss="modal" aria-hidden="true" id="read_more_lamarche">Lisez d'autres histoires</div>
+
+    </div><!-- / .col-md-8 -->
+  </div><!-- / .row -->
+</div><!-- / .modalbody -->
+</div><!-- / .modal-content -->
+
+</div><!-- / .modal-dialog -->
+</div><!-- / .modal Lamarche -->
+	
+
+
+

@@ -1,0 +1,254 @@
+﻿@import "_variables.scss";
+
+
+.logoEn {
+  img {
+    max-width: 160px;
+  }
+
+  @media (min-width: $xs-sm-BP+1) {
+    img {
+      margin: $standardUnit*1.75 auto $standardUnit*2.5 0px;
+      width: 50%;
+    }
+  }
+
+  @media (max-width: $xs-sm-BP) {
+    img {
+      margin: $standardUnit auto;
+      width: 40%;
+    }
+  }
+}
+
+@media (max-width: $xs-sm-BP) {
+  .logoEn {
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
+}
+
+
+
+#nearResidenceId.nearestResidencesTopRight {
+  margin: $standardUnit*4 0px $standardUnit*2 auto;
+  font-size: $rootFontSize*.975;
+  display: inline-block;
+  min-width: 40%;
+  text-align: center;
+  margin: $standardUnit*2 0px $standardUnit*2 auto;
+  padding-left: 30px;
+  padding-right: $standardUnit;
+  background-image: url('/Assets/images/closest-residence.svg');
+  background-repeat: no-repeat;
+  background-size: auto 30px;
+  color: $midGray;
+
+  a {
+    font-weight: bold;
+  }
+}
+
+/* language bar --------------------------- */
+.topBarLangCarrInvest {
+  font-size: $rootfontSizeRem * 0.95;
+  display: inline-block;
+  padding-top: $standardUnit * 3;
+  float: right;
+
+  span {
+    color: $darkGray;
+    font-size: $rootfontSizeRem * 0.9;
+  }
+
+  .tabCareers, .tabInvest {
+    display: inline-block;
+    padding: $standardUnit/2 $standardUnit $standardUnit/2 $standardUnit*2;
+  }
+
+  a:not(#lnkEnglish), a:not(#lnkFrench) {
+    color: black;
+    padding-left: $standardUnit;
+    border-left: $standardBorder;
+    font-size: $rootFontSize;
+  }
+
+  a:first-child {
+    border-left: 0;
+  }
+
+  .languageToggle {
+    display: flex;
+    flex-direction: row;
+    float: right;
+    margin-left: $standardUnit * 4;
+
+    span {
+      display: none;
+    }
+
+    .langOption, #lnkEnglish, #lnkFrench {
+      font-size: $rootFontSize;
+      text-transform: uppercase;
+      padding: $standardUnit/2 $standardUnit !important;
+      border: $standardBorder;
+      border-radius: $standardUnit/2;
+      color: $midGray;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right-width: 0;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    #lnkFrench {
+      margin-left: 0;
+      border-radius: $standardUnit/2;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-right-width: 1px;
+    }
+
+    #lnkFrench, #lnkEnglish {
+      color: $darkestGray;
+    }
+
+    &.en .langOption.en,
+    &.fr .langOption.fr,
+    &.en #lnkEnglish,
+    &.fr #lnkFrench {
+      color: black;
+      box-shadow: inset 2px 2px 2px rgba(0,0,0,0.1);
+      background-color: $lightestGray;
+    }
+  }
+
+  @media screen and (max-width: $xs-sm-BP) {
+    .tabCareers, .tabInvest {
+      margin-bottom: 1px;
+    }
+
+    #lnkEnglish, #lnkFrench {
+      margin-bottom: 4px;
+    }
+  }
+}
+
+/* Search Bar ----------------------------------------------------------------------------- */
+.searchBar {
+  border-bottom: 1px solid rgba($chartwellPrimary, 0.2);
+  border-top: 1px solid rgba($chartwellPrimary, 0.2);
+  padding: $standardUnit*.8 0;
+  background: $chartwellLightestPrimary;
+
+  p {
+    font-size: $rootfontSizeRem * 1.175;
+    line-height: 2.4em;
+    font-weight: 600;
+    margin: 0;
+    color: $darkestGray;
+  }
+
+  .form-group, .input-group {
+    margin: 2px 10px;
+    width: 100%;
+
+    input {
+      width: 100%;
+      color: black;
+      font-size: $rootfontSizeRem;
+
+      &::-webkit-input-placeholder, &:-ms-input-placeholder, &::-moz-placeholder, &:-moz-placeholder {
+        color: #666;
+        opacity: 1;
+        font-size: $rootfontSizeRem;
+      }
+
+      &.activeSearchField {
+      }
+
+      &.inactiveSearchField {
+        background-color: $lightestGray;
+      }
+    }
+  }
+
+  .input-group {
+    margin-left: 0;
+  }
+
+  .input-group-btn input {
+    color: black;
+    letter-spacing: 1px;
+    font-weight: bold;
+  }
+
+  .btn {
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: $sm-BP) {
+    .residenceSearchformColumn {
+      padding-left: 0;
+      padding-right: $standardUnit;
+
+      &:last-child {
+        padding-right: 0
+      }
+
+      .form-group {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+
+  @media screen and (min-width: $lg-BP) {
+    p {
+      padding-left: $standardUnit*6;
+    }
+  }
+
+  @media screen and (max-width: $sm-BP) {
+    p {
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: $xs-sm-BP) {
+    #ChartwellSearch {
+      height: 34px;
+    }
+
+    .btn-label {
+      display: none;
+    }
+
+    p {
+      line-height: $standardUnit*3.5;
+    }
+  }
+}
+
+@media screen and (max-width: $xs-sm-BP) {
+  .tabCareers, .tabInvest {
+    margin-bottom: 1px;
+  }
+
+  #lnkEnglish, #lnkFrench {
+    margin-bottom: 4px;
+  }
+}
+
+
+//override for the typeahead
+.ui-menu {
+  box-shadow: $standardBoxShadow;
+  .ui-menu-item-wrapper {
+    padding: 0 $standardUnit*2;
+    font-size: $rootfontSizeRem;
+  }
+}
+
+

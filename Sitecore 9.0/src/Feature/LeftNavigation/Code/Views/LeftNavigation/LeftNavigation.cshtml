@@ -1,0 +1,82 @@
+﻿@using Sitecore.Mvc
+
+@model Chartwell.Feature.LeftNavigation.Models.LeftNavigationMenu
+@{
+
+    Sitecore.Links.UrlOptions options = new Sitecore.Links.UrlOptions();
+
+    options.LanguageEmbedding = Sitecore.Links.LanguageEmbedding.Always;
+    options.LanguageLocation = Sitecore.Links.LanguageLocation.FilePath;
+    options.UseDisplayName = true;
+
+
+}
+
+
+<div class="btn-group-vertical leftPropNav hidden-print" role="group" aria-label="leftNavigation">
+
+    @foreach (var item in Model.Children)
+    {
+        <div class="btn btn-default">
+            @if (@item.DisplayName != "direction")
+            {
+
+
+                <a id="lnk-@item.DisplayName" href="@Sitecore.Links.LinkManager.GetItemUrl(@item,options)"><span class="@item["Icon"]"></span><span class="nameText">@item["Title"]</span></a>
+                @*<a id="lnk-@item.DisplayName" href="@Url.Action(@item.DisplayName, "../../", null)#@list"><span class="@item["Icon"]"></span><span class="nameText">@item["Title"]</span></a>*@
+
+
+            }
+            else
+            {
+                <a id="lnk-@item.DisplayName" target='_blank' href="@Model.PropertyLocationUrl"><span class="@item["Icon"]"></span><span class="nameText">@item["Title"]</span></a>
+
+            }
+        </div>
+    }
+    <br />
+
+</div>
+<div>
+    <h2 class="hidden-md hidden-lg text-center PhoneMobileOnly">
+
+        <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> <a href="tel:@Model.PhoneNo" id="Phone_Link"><span id="PhoneNoLabel">@Model.PhoneNo</span></a>
+</div>
+	</h2><div class="clearfix" style="clear: both;"></div>
+<script>
+    $(function () {
+        var pathlength = location.pathname.split("/").length;
+        var pathid = "lnk-" + decodeURI(location.pathname.split("/")[pathlength - 1]).toLowerCase();
+        console.log(pathid);
+        if(pathid =="lnk-overview")
+        {
+             $('#' + pathid).parent('div').removeClass('btn-default');
+           $('#' + pathid).parent('div').addClass('btn btn-primary');
+            $('#lnk-aperçu').parent('div').removeClass('btn-default');
+           $('#lnk-aperçu').parent('div').addClass('btn btn-primary');
+        }
+
+         if($('#'+ pathid).parent('div').hasClass('btn-default'))
+         {
+        $('#' + pathid).parent('div').removeClass('btn-default');
+        $('#' + pathid).parent('div').addClass('btn btn-primary');
+         }
+
+
+
+    });
+
+</script>
+<div>
+
+    @if (@Model.isEventDisplay)
+    {
+        <p>
+            @Html.Sitecore().Field("Property Special Events", @Model.InnerItem)
+
+
+        </p>
+
+    }
+
+</div>

@@ -1,0 +1,123 @@
+﻿@model Chartwell.Project.Website.Models.BreadcrumbItems
+@{
+    bool property = false;
+    Sitecore.Links.UrlOptions options = new Sitecore.Links.UrlOptions();
+
+    options.LanguageEmbedding = Sitecore.Links.LanguageEmbedding.Always;
+    options.LanguageLocation = Sitecore.Links.LanguageLocation.FilePath;
+    options.UseDisplayName = true;
+
+    options.LowercaseUrls = true;
+
+}
+<ol class="hidden-print breadcrumb">
+
+
+    @foreach (var navItem in @Model.BreadcrumbItem)
+    {
+        if (navItem.TemplateName == "Property Page")
+        {
+            if (@Model.BreadcrumbItem.First() != navItem)
+            {
+                property = true;
+                <li class="breadcrumb-item">
+                    <a id="lnk-propURL" href="@Model.PropertyURL" class="breadcrumbLink">
+
+                        @navItem.Fields["Property Name"].ToString()
+                    </a>
+                </li>
+            }
+
+
+        }
+        else
+        {
+
+            if (@Model.BreadcrumbItem.First() == navItem)
+            {
+                <li class="breadcrumb-item" style="vertical-align:middle">
+                    <a id="lnk-chartNav" href="http://@Model.HostSite"><img src="/Assets/Images/Layout/favicon-16x16.png"></a>
+                </li>
+                <li class="breadcrumb-item">
+                    @if (navItem.TemplateName != "Property Page Folder")
+                    {
+                        <a style="text-transform: capitalize;text-decoration:none;">
+
+                            @navItem.DisplayName.Replace('-', ' ')
+                        </a>
+                    }
+                    else
+                    {
+                        if (Sitecore.Context.Language.Name != "en")
+                        {
+                            <a id="lnk-prop" href="http://@Model.HostSite/search-results/?City=canada" style="" class="breadcrumbLink">
+                                Résidences pour retraités
+                            </a>
+                        }
+                        else
+                        {
+
+                            <a id="lnk-prop" href="http://@Model.HostSite/search-results/?City=canada" style="text-transform: capitalize;text-decoration:none;" class="breadcrumbLink">
+                                @navItem.DisplayName.Replace('-', ' ')
+                            </a>
+
+
+                        }
+
+
+                    }
+
+                </li>
+            }
+
+            else if (@Model.BreadcrumbItem.Last() == navItem)
+            {
+                <li class="breadcrumb-item active">
+                    @if (@property)
+                    {
+                        <a style="text-transform: capitalize;text-decoration:none;">
+
+                            @navItem.DisplayName.Replace('-', ' ')
+                        </a>
+                    }
+                    else
+                    {
+
+                        <a style="text-decoration:none;">
+
+                            @navItem.DisplayName.Replace('-', ' ')
+                        </a>
+                    }
+                </li>
+
+
+            }
+            else
+            {
+                <li class="breadcrumb-item">
+                    @if (@property)
+                    {
+                        <a style="text-transform: capitalize;text-decoration:none;">
+
+                            @navItem.DisplayName.Replace('-', ' ')
+                        </a>
+                    }
+                    else
+                    {
+
+                        <a id="lnk-Staticnav" href="@Sitecore.Links.LinkManager.GetItemUrl(@navItem,options).Replace(' ','-')" class="breadcrumbLink">
+
+                            @navItem.DisplayName.Replace('-', ' ')
+                        </a>
+                    }
+                </li>
+
+            }
+
+
+        }
+    }
+
+
+
+</ol>

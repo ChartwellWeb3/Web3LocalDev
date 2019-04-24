@@ -1,0 +1,12 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@model RenderingModel
+<div class="btn-group-vertical leftPropNav hidden-print" role="group" aria-label="leftNavigation">
+    @foreach (var item in Model.Item.Parent.Children.ToArray())
+    {
+        <div class="btn btn-default">
+            <a href="@Sitecore.Links.LinkManager.GetItemUrl(@item)"><span class="@item["Icon"]"></span><span class="nameText">@item["Title"]</span></a>
+        </div>
+
+    }
+</div>

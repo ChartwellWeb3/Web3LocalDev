@@ -1,0 +1,642 @@
+@import "_variables.scss";
+
+#mainBlock {
+  padding: 1rem 2rem;
+
+  @media screen and (max-width: $sm-BP) {
+    padding: 1rem;
+  }
+
+  @media screen and (max-width: $xs-sm-BP) {
+    padding: 1rem;
+  }
+}
+
+.staticPage {
+  #toolsgallery {
+    padding: $standardUnit*6 $standardUnit*12;
+    overflow: auto;
+
+    div {
+      overflow: hidden;
+      height: 380px;
+    }
+
+    @media screen and (max-width: $sm-BP) {
+      padding: $standardUnit*2 $standardUnit*3;
+
+      div {
+        height: 350px;
+
+        a {
+          height: 320px;
+        }
+      }
+    }
+
+    @media screen and (max-width: $xs-sm-BP) {
+      padding: 0;
+
+      div {
+        height: 360px;
+
+        a {
+          height: 330px;
+        }
+      }
+    }
+
+    a {
+      display: block;
+      border-radius: $standardUnit/2;
+      height: 350px;
+      overflow: hidden;
+      position: relative;
+      margin-top: 20px;
+      margin-bottom: 15px;
+      position: relative;
+      background-size: cover;
+      box-shadow: $standardBoxShadow;
+      transition: all .1s ease-in-out;
+      background-position: 50% 50% !important;
+
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(6) {
+        background-position: 50% 50% !important;
+      }
+
+      h3 {
+        position: absolute;
+        display: block;
+        bottom: 0;
+        margin: 0;
+        padding: $standardUnit * 3 $standardUnit * 2;
+        min-height: $standardUnit * 12;
+        background-color: rgba($chartwellPrimary, 0.85);
+        color: white;
+        font-size: $standardUnit *2.5;
+        width: 100%;
+        text-align: center;
+      }
+
+      &:hover {
+        margin-top: 15px;
+        box-shadow: $highestBoxShadow;
+
+        h3 {
+          background-color: $chartwellPrimary;
+          text-shadow: $standardBoxShadow;
+        }
+      }
+    }
+  }
+
+  #wishOfALifetime {
+    padding: $standardUnit*6 $standardUnit*12;
+    overflow: auto;
+
+    h2 {
+      margin-top: 0;
+
+      @media screen and (max-width: $sm-BP) {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  #hpBlogArea {
+    padding: $standardUnit*6 $standardUnit*12;
+    overflow: auto;
+    background-color: rgba($lightestGray,0.8);
+  }
+
+  @media screen and (max-width: $sm-BP) {
+    #gallery, #wishOfALifetime, #hpBlogArea {
+      padding: $standardUnit*4;
+    }
+  }
+
+  @media screen and (max-width: $xs-sm-BP) {
+    #gallery, #wishOfALifetime, #hpBlogArea {
+      padding: $standardUnit*2;
+    }
+  }
+}
+
+.well {
+  background-image: none;
+  box-shadow: none;
+  h4 {
+    color: black;
+  }
+}
+
+.singleColumn {
+  .staticPage {
+    //padding: $standardUnit*6 $standardUnit*12;
+  }
+}
+
+.flexContainer {
+  display: flex;
+  flex-direction: row;
+
+  .flexColumn {
+    display: inline-flex;
+    flex-basis: 100%;
+
+    &.rightColumn {
+      flex-basis: 320px;
+    }
+  }
+}
+
+//Homepage styles
+#VideoContainerRelative {
+  width: 100%;
+  min-height: 520px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  /* Style the video: 100% width and height to cover the entire window */
+  #homeVideo {
+    width: 100%;
+    min-height: 100%;
+    background-image: url(/Assets/Images/Layout/video-home-image.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  /* Add some content at the bottom of the video/page */
+  .sliderContainerAbsolute {
+    position: absolute;
+    left: 50%;
+    width: 80%;
+    top: 20%;
+
+    .sliderTabsWrap {
+      position: relative;
+      margin-left: -50%;
+      width: 100%;
+      background: rgba(141,19,96,.5);
+      padding: 20px;
+
+      .tab-content {
+        background-color: rgba(141,19,96,.3);
+        color: White;
+        padding-bottom: 0;
+        border: 1px solid White;
+        min-height: 260px;
+      }
+
+      .sliderTitleHeadings {
+        margin-bottom: 0px;
+
+        h1, h2, h3, h4, h5, h6, h7 {
+          color: white;
+        }
+
+        h3 {
+          letter-spacing: 1px;
+          font-weight: 300;
+          line-height: 1.3em;
+        }
+      }
+
+      p {
+        letter-spacing: 1px;
+      }
+
+      .btn-default {
+        background-color: rgba(141,19,96,0);
+        color: White;
+        background-image: none;
+        text-shadow: none;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+
+
+      .homePageSliderTabs {
+        border: none;
+
+        li {
+          width: 25%;
+          margin: 0;
+
+          a {
+            min-height: 20px;
+            text-align: left;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: White;
+            background-color: rgba(141,19,96,.6);
+            overflow: auto;
+            border-radius: 0px;
+            margin: 0px;
+            border: 1px solid rgba(255,255,255,1);
+            border-top: none;
+
+            &:hover {
+              background-color: $lighterGray;
+              color: $chartwellPrimary;
+            }
+
+            img {
+              float: left;
+              width: 30px;
+              border-radius: 50%;
+              border: 2px solid rgba(255,255,255,.7);
+              background-color: rgba(255,255,255,.8);
+            }
+
+            span {
+              float: left;
+              padding-left: 0px;
+              line-height: 1.8em;
+              margin: 0 auto;
+              text-align: center;
+              width: 100%;
+              font-weight: 600;
+            }
+          }
+
+          &.active {
+            a {
+              border: 1px solid rgba(255,255,255,1);
+              border-top: none;
+              color: black;
+              background-color: white;
+
+              &:hover {
+                color: rgba(0,115,188,1);
+              }
+            }
+          }
+
+          &:first-child {
+            a {
+              border-right: none;
+            }
+
+            &.active a {
+              border: 1px solid rgba(255,255,255,1);
+              border-top: none;
+              border-right: none;
+            }
+          }
+
+          &:last-child {
+            a {
+              border-left: none;
+            }
+
+            &.active a {
+              border: 1px solid rgba(255,255,255,1);
+              border-top: none;
+              border-left: none;
+
+              &:hover {
+                border: 1px solid rgba(255,255,255,1);
+                border-top: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: $sm-BP){
+
+  #VideoContainerRelative {
+    overflow: visible;
+    min-height: initial;
+
+    #homeVideo, .sliderContainerAbsolute {
+      position: relative;
+      margin: 0;
+      left: 0;
+      top: auto;
+      width: 100%;
+      .sliderTabsWrap {
+        margin-left: 0;
+        background-color: $chartwellSecondary;
+      }
+    }
+  }
+}
+
+//modal
+.modal-backdrop { opacity: 0.5; }
+
+//Questionnaires
+.surveyRow h5 {
+  line-height: 160%;
+  color: #0078bf;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+}
+
+.surveyRow label {
+  font-size: 14px;
+  margin-right: 15px;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-weight: normal;
+}
+
+.surveyRow label input {
+  padding-left: 25px;
+  margin-right: 5px;
+}
+
+.surveyRow .btn-default {
+  background-color: #EFEFEF !important;
+  color: #428bca !important;
+  -webkit-border-radius: 4px !important;
+  -moz-border-radius: 4px !important;
+  border-radius: 4px !important;
+}
+
+.surveyRow .btn-default:hover {
+  background-color: #ECECEC !important;
+  border-color: #428bca;
+  color: #428bca !important;
+}
+
+.progress, progress-bar-striped, .progress-striped .progress-bar {
+  -webkit-border-radius: 4px !important;
+  -moz-border-radius: 4px !important;
+  border-radius: 4px !important;
+}
+
+.surveyRow {
+
+  .bs-example {
+    padding: $standardUnit;
+    border-top-left-radius: $standardUnit/2;
+    border-top-right-radius: $standardUnit/2;
+    background-color: $lightestGray;
+    box-shadow: none;
+    border: $standardBorder;
+
+    ol {
+      margin: 0;
+
+      li {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .listReport {
+    border: $standardBorder;
+    margin-bottom: 14px;
+    padding: 9px 14px 9px 35px;
+    border-bottom-right-radius: $standardUnit/2;
+    border-bottom-left-radius: $standardUnit/2;
+    border-top: none;
+  }
+
+  .progress {
+    background-image: none;
+    border: $standardBorder;
+    background-color: $lightGray;
+    height: $standardUnit*4;
+
+    .progress-bar {
+      line-height: $standardUnit*3.5;
+      text-shadow:$lowerBoxShadow;
+
+      &.progress-bar-striped {
+        background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+        background-image: -o-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+        background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+        background-size: 40px 40px;
+
+        &.active {
+          animation: progress-bar-stripes 2s linear infinite;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.progress-bar-success {
+  background-color: #5cb85c
+}
+
+.progress-striped .progress-bar-success {
+  background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+  background-image: -o-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+  background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent)
+}
+
+.progress-bar-info {
+  background-color: #5bc0de
+}
+
+.progress-striped .progress-bar-info {
+  background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+  background-image: -o-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+  background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent)
+}
+
+.progress-bar-warning {
+  background-color: #f0ad4e
+}
+
+.progress-striped .progress-bar-warning {
+  background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+  background-image: -o-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+  background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent)
+}
+
+.progress-bar-danger {
+  background-color: #d9534f
+}
+
+.progress-striped .progress-bar-danger {
+  background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+  background-image: -o-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+  background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent)
+}
+
+surveyRow > div > div.progress > div.progress-bar {
+  padding-top: 4px;
+  font-weight: bold;
+}
+
+
+/* home page / newest residences block */
+
+$newestResidenceCarouselHeightLG: 65vh;
+$newestResidenceCarouselWidthLG: 85%;
+
+.newestResidences {
+  height: 350px;
+
+  @media screen and (min-width: $lg-BP) {
+    max-width: $newestResidenceCarouselWidthLG;
+    height: $newestResidenceCarouselHeightLG;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &:hover span.descriptionNewRes {
+    background-color: rgba(141,19,96,0.8);
+  }
+}
+
+.newestResidences div {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @media screen and (min-width: $lg-BP) {
+    background-size: cover;
+    background-color: black;
+  }
+}
+
+.newestResidences span.descriptionNewRes {
+  background-color: rgba(141,19,96,0.6);
+  display: block;
+  width: 100%;
+  min-height: 50px;
+  bottom: 0px;
+  position: absolute;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.75);
+  box-shadow: -1px 0px 5px rgba(0,0,0,.6);
+
+
+}
+
+.descriptionNewRes > h3 {
+  color: white;
+  padding-left: 15px;
+}
+
+.descriptionNewRes > h3 > a {
+  color: white;
+}
+
+.descriptionNewRes > h3 > a > .colorGold > .glyphicon-link {
+  font-size: 16px;
+}
+
+.descriptionNewRes > p {
+  color: white;
+  padding-left: 15px;
+}
+
+.descriptionNewRes > p > a {
+  color: white !important;
+  padding-right: 15px;
+}
+
+.newestResidences-nav {
+  height: 90px;
+  margin-top: 0px;
+  background-color: rgba(0,0,0,.05);
+
+  @media screen and (min-width: $lg-BP) {
+    height: 130px;
+    max-width: $newestResidenceCarouselWidthLG;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.newestResidences-nav div {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.colorGold {
+  color: gold;
+  margin:0 10px;
+}
+
+.slick-prev {
+  left: 20px !important;
+  text-shadow: $standardBoxShadow;
+}
+
+.slick-next {
+  right: 40px !important;
+  text-shadow: $standardBoxShadow;
+}
+
+.slick-prev:before, .slick-next:before {
+  font-size: 40px !important;
+}
+
+.slick-dots {
+  bottom: -50px !important;
+}
+
+.slick-dotted.slick-slider {
+  margin-bottom: 60px !important;
+}
+
+.newestResidences .slick-track > div {
+  height: 350px;
+
+  @media screen and (min-width: $lg-BP) {
+    height: $newestResidenceCarouselHeightLG;
+  }
+}
+
+.newestResidences-nav .slick-track > div {
+  height: 90px;
+
+  @media screen and (min-width: $lg-BP) {
+    height: 150px;
+  }
+}
+
+.descThumb {
+  background-color: rgba(0,0,0,.75);
+  display: block;
+  min-height: 25px;
+  bottom: 0px;
+  position: absolute;
+  font-size: .7em;
+  color: white;
+}
+
+.slick-arrow {
+  z-index: 99
+}
+
+.slick-prev {
+  left: 10px;
+}
+
+.slick-next {
+  right: 10px;
+}
+
+table.suitesPlan {
+  tr {
+    td {
+      a {
+        font-weight: bold;
+        margin: 5px 0;
+        line-height: 2;
+
+        .glyphicon {
+          font-size: 25px;
+          float: left;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}
+

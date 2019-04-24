@@ -1,0 +1,37 @@
+﻿@model List<Chartwell.Feature.RecentlyViewedPages.Models.RecentlyViewedPagesModel>
+
+
+@if (Model.Count > 0)
+{
+  <div class="container-fluid personalizationPastHomes">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+
+          <a data-toggle="collapse" href="#recentlyViewedBasket" aria-expanded="false" aria-controls="recentlyViewedBasket" class="toggler">
+            <h3 class="pasthomesToggle">
+              @Sitecore.Globalization.Translate.Text("Recently Viewed")
+              <i class="fas fa-chevron-down pull-right"></i>
+              <i class="fas fa-chevron-up pull-right"></i>
+            </h3>
+          </a>
+        </div>
+      </div><!-- / .row -->
+      <div class="row ">
+
+        <div id="recentlyViewedBasket" class="collapse">
+          @foreach (var recentViewPage in Model)
+          {
+            <div class="col-xs-12 col-sm-3">
+              <div class="wrapPropPersItem">
+                <a href="@recentViewPage.RecentlyViewedPageUrl" class="panel panel-info">
+                  <img class="img-responsive" src="@Url.Content(recentViewPage.InteractionImage)?mw=293" /> <p>@recentViewPage.InteractionPropertyName</p>
+                </a>
+              </div>
+            </div>
+          }
+        </div><!-- / #recentlyViewedBasket -->
+      </div><!-- / .row -->
+    </div><!-- / .container -->
+  </div><!-- / .container-fluid .personalizationPastHomes -->
+}

@@ -1,0 +1,14 @@
+@import "./vendor/bootstrap-3.3.7/_bootstrap.scss";
+@import "./vendor/bootstrap-theme.3.3.7.min.scss";
+@import "./vendor/fontawesome-5.7.2/fontawesome.scss";
+@import "./vendor/fontawesome-5.7.2/solid.scss";
+@import "./vendor/fontawesome-5.7.2/regular.scss";
+@import "./vendor/jquery-ui.1.12.1.min.scss";
+@import "./vendor/jquery.fancybox.scss";
+@import "./vendor/jquery.fancybox.fancybox-demo.scss";
+
+
+//some pointing to icon assets
+.ui-widget-header .ui-icon {
+  background-image: url(https://code.jquery.com/ui/1.12.1/themes/base/images/ui-icons_444444_256x240.png);
+}

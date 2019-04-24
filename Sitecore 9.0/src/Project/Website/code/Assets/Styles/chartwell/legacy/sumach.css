@@ -1,0 +1,241 @@
+/* =Template
+-------------------------------------------------------------- */
+#wrapper {
+  width: 100%;
+  margin: 0 auto; }
+body {font-family: 'Montserrat', sans-serif !important; font-weight: 400;}
+/*#main.mainFrontPage {padding-top: 0px;}*/
+#main {font-size: 1.4em; line-height: 1.9em; background-color: #fff;  padding-top: 85px;}
+em {font-family: Georgia, "serif"; letter-spacing: 1px;}
+
+
+
+
+/* =Info Bar
+-------------------------------------------------------------- */
+#info-bar {
+  background-color: #3cb5f9; }
+  #info-bar a {
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 0;
+    padding: 10px; }
+    #info-bar a:hover {
+      background-color: #0793e2; }
+  #info-bar span.all-tutorials,
+  #info-bar span.back-to-tutorial {
+    display: block;
+    width: 50%; }
+  #info-bar span.all-tutorials {
+    float: left;
+    text-align: left; }
+  #info-bar span.back-to-tutorial {
+    float: right;
+    text-align: right; }
+
+/* #Header
+-------------------------------------------------------------- */
+#header {
+  width: 100%;  height: 140px; z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0; }
+  #header img#logo {
+    display: inline-block; width:451px; height: 38px; margin:10px auto 10px 0;
+    float: left; }
+  #header.smaller {
+    height: 67px; }
+    #header.smaller img#logo {
+      width: 300px;
+      height: 25px; margin:5px auto 5px 0;}
+
+
+
+#header, #header img#logo, #header .navbar, #header.smaller .navbar-nav>li>a {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+transition: all 0.3s; }
+#header.smaller .navbar {	min-height: 30px;}
+
+ul.headerCTA {list-style:none; margin: 5px 0; float:right;}
+ul.headerCTA li{ margin:4px auto auto 8px; display: inline-block;}
+ul.headerCTA li a { color: #FFFFFF; padding:4px 8px; letter-spacing: 1px; border: 1px solid #0072bc; border-radius: 4px; background-color: #359cb5; font-weight: bold;}
+ul.headerCTA li a:hover {background-color: #0072bc; text-decoration: none;}
+
+.navbar-default .navbar-nav>li>a {color:#222222 !important; }
+
+/* =Video slider home page 
+-------------------------------------------------------------- */
+.video-section .pattern-overlay {
+/*background-color: rgba(71, 71, 71, 0.59);*/
+padding: 110px 20px 32px;
+min-height: 600px; 
+/* Incase of overlay problems just increase the min-height*/
+}
+.video-section h1, .video-section h3{
+text-align:center;
+color:#fff;
+}
+.video-section h1{
+font-size:3em;
+margin: 40px auto 0px;
+text-shadow: 1px 1px 1px #000;
+-webkit-text-shadow: 1px 1px 1px #000;
+-moz-text-shadow: 1px 1px 1px #000;
+}
+.video-section h3{
+font-size: 25px;
+font-weight:lighter;
+margin: 0px auto 15px;
+	text-shadow: 1px 1px 1px #000;
+-webkit-text-shadow: 1px 1px 1px #000;
+-moz-text-shadow: 1px 1px 1px #000;
+}
+.video-section .buttonBar{display:none;}
+.player {font-size: 1px;}
+
+/* =Slider
+-------------------------------------------------------------- */
+html, body, .carousel, .carousel-inner, .carousel-inner .item {width: 100%;}
+.carousel-inner > .item > .imgBgSlide {height:600px; background-repeat: no-repeat; background-size: cover; background-position: center;} 
+
+.carousel-inner > .item.slide1 {background-image: url(-/media/B47E29CE46484A86BECA35BF51CA3D9E.ashx);}
+.carousel-inner > .item > .imgBgSlide.slide2 {background-image: url(-/media/B145C0A77F03411FB6F758CCD6FE7FCC.ashx);}
+.carousel-inner > .item > .imgBgSlide.slide3 {background-image: url(-/media/CD953C9FC9E244FBB25AE5F21F1049FC.ashx);}
+.captionShadow { padding:20px;     background-color: rgba(53,156,181,0.9); }
+.carousel-caption h3{
+font-size:3em;
+margin: 0 auto 0px;
+text-shadow: 1px 1px 1px #000;
+-webkit-text-shadow: 1px 1px 1px #000;
+-moz-text-shadow: 1px 1px 1px #000;
+}
+.carousel-caption p {
+font-size: 25px;
+font-weight:lighter;
+margin: 0px auto 15px;}
+
+.carousel-caption {top:40px; right: 10% !important;	left: 10% !important;}
+
+
+
+
+
+/* =Content
+-------------------------------------------------------------- */
+
+div.frameBorder {border:1px solid white; padding:5px 0 15px 15px; margin:15px 0 15px;}
+
+.bgPurple {background-color:#6f4a82; color:white; border-top:1px solid #6f4a82;border-bottom:1px solid #6f4a82; padding-left:0px; padding-right:0px; margin-left: -15px; margin-right:-15px;}
+div.frameBorder h1{margin-top: 10px;}
+div.frameBorder p {margin:10px 0;}
+a.btn-whitePurple { background-color: white; color:#6f4a82; font-size:1em; border-color: #6f4a82;}
+a.btn-whitePurple:hover { background-color: #6f4a82; color:white; border-color: white;}
+a.btn-whitePurpleInvert { background-color: #6f4a82; color:white; border-color: white;}
+a.btn-whitePurpleInvert:hover { background-color: white; color:#6f4a82; font-size:1em; border-color: #6f4a82;}
+
+.bgImage {color:black;  padding-top:35px; padding-bottom:50px; padding-left:0px; padding-right:0px; margin-left: -15px; margin-right:-15px; background-image:url(-/media/B145C0A77F03411FB6F758CCD6FE7FCC.ashx); background-attachment:fixed; background-position: center; background-size: cover; background-repeat: no-repeat;}
+.bgImage div.frameBorder {border:1px solid white; padding:30px;margin:35px; background-color: rgba(255,255,255,0.9);}
+.bgImage div.frameBorder h1 {color:#6f4a82;}
+.bgImage div.frameBorder em {color:#359cb5;}
+
+.bgBlue {background-color: #359cb5; color:white; border-top:1px solid #359cb5;border-bottom:1px solid #359cb5; padding-left:0px; padding-right:0px; margin-left: -15px; margin-right:-15px;}
+.bgBlue .bgImageHalf {height:450px;}
+
+.bgImageHalf { background-position: center; background-size: cover; background-repeat: no-repeat;}
+
+.bgPurple h1, .bgBlue h1 {
+  color: white;
+}
+
+.registerNowForm {
+    margin: 25px;
+    padding: 15px;
+    background-color: rgba(53,156,181,0.8);
+    color: #FFF;}
+
+.mapPreventScroll {
+   background:transparent; 
+   position:relative; 
+   width:100%;
+   height:400px; /* your iframe height */
+   top:400px;  /* your iframe height */
+   margin-top:-400px;  /* your iframe height */
+}
+
+.embed-responsive video {padding-top:12px;}
+
+/* Lightbox for Bootstrap - ekko-lightbox */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Suite floor plans ---*/
+
+.downloadButtonText {
+    color: White;
+    background-color: #6f4a82;
+    padding: 21px 20px 15px 20px;
+    font-size: 16px;
+}
+.downloadButtonText:visited {color:white; }
+.downloadButtonText:hover {color:white; background-color: #523660;}
+.downloadButton i {
+    color: White;
+    padding: 15px 10px 15px 10px;
+    background-color: #359cb5;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+
+/* =Footer
+-------------------------------------------------------------- */
+#toTop {
+    padding: 5px 20px;
+background-color: rgba(0,0,0,.75);
+    border-radius: 4px 4px 0 0;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    right: 5px;
+    display: none;}
+/*#toTop:before {
+    line-height: 35px;
+    content: '\f106';
+    -webkit-font-smoothing: antialiased;
+    font-family: 'FontAwesome';
+	font-size: 22px;}*/
+#main footer {line-height:2em;}
+footer { height: 33px; color:white; font-size: 14px; text-align:center;	  background-color: #359cb5;	}/**/
+
+/* =Extras
+-------------------------------------------------------------- */
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  content: "";
+  clear: both;
+  height: 0; }
+
+/* =Media Queries
+-------------------------------------------------------------- */
+@media screen and (min-width: 768px){
+	header.smaller .navbar-nav>li>a {    padding-top: 4px;   padding-bottom: 4px;}
+	nav.navbar { border-radius: 0px;}
+	/*.carousel-caption {right: 5%;	left: 5%;}*/
+}
+@media (max-width: 767px){
+	.carousel-caption {padding-top:0px;}
+	.carousel-caption h3, .video-section h1 {font-size: 1.2em; font-weight:600;}
+	.carousel-caption p, .video-section h3 {font-size: 14px; letter-spacing: 0.5px; line-height: 18px; font-weight:600;}
+	ul.headerCTA { list-style:none; margin: 5px 0 5px 0; padding-left: 0px;}
+	ul.headerCTA li  {margin:0px;	}
+	div.frameBorder {margin: 15px -15px;}
+	.bgImage div.frameBorder.frostedBack {margin:0px; padding: 5px; }
+}

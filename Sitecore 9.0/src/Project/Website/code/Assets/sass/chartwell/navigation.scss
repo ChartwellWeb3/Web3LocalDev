@@ -1,0 +1,440 @@
+@import "_variables.scss";
+
+a {
+  color: $chartwellPrimary;
+
+  &:hover {
+    color: $chartwellDarkPrimary;
+  }
+}
+
+#globalHeaderNav, header .searchBar {
+  box-shadow: $lowerBoxShadow;
+}
+
+a.topPhoneBar {
+  color: #333;
+  float: right;
+  text-align: center;
+  line-height: 24px;
+  display: block;
+  border: none !important;
+  padding: 4px 14px;
+  font-size: 20px;
+  margin-top: 8px;
+
+  &:hover {
+    color: $chartwellPrimary;
+    text-decoration: none;
+    animation-duration: 0.5s;
+    animation-name: topNavigationHover;
+  }
+}
+
+.fr {
+  a.topPhoneBar {
+    font-size: 17px;
+    padding: 4px 0;
+  }
+}
+
+.navbar-header .topPhoneBar {
+  float: right;
+  display: none
+}
+
+@media screen and (max-width: $xs-sm-BP){
+  .header-static .navbar-header .topPhoneBar {
+    float: left;
+    display: block;
+    margin-top: 8px;
+    border: 0;
+  }
+
+  #bs-example-navbar-collapse-1 .topPhoneBar {
+    display: none !important
+  }
+}
+
+@media (max-width: $sm-BP) {
+  a.topPhoneBar {
+    margin: 0px 25% 4px auto;
+    display: block;
+    border-top: $standardBorder;
+    padding-top: $standardUnit;
+  }
+  .header-static .navbar-header .topPhoneBar {
+    float: left;
+    display: block;
+    margin-top: 8px;
+    border: 0;
+  }
+  #bs-example-navbar-collapse-1 .topPhoneBar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: $lg-BP+1) {
+  .topPhoneBar {
+    font-size: 18px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+nav {
+  &.navbar {
+    border-radius: 0px;
+    margin-bottom: 0px;
+
+    .navbar-collapse {
+      text-align: center;
+    }
+
+    .navbar-default {
+      box-shadow: 0px 2px 5px rgba(0,0,0,.3);
+    }
+
+    > li > a {
+      font-size: 1em;
+      font-weight: 600;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  &.navbar-inverse {
+    background: #EFEFEF;
+    border: none;
+    border-top: 1px solid #DDD;
+    border-radius: 0px;
+
+
+    .collapse {
+      padding: 0;
+
+      .navbar-nav > li > a {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      &.fr .navbar-nav > li > a {
+        font-size: .925em;
+        letter-spacing: 0;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+
+      @media screen and (min-width: $lg-BP) {
+        .navbar-nav > li > a, &.fr .navbar-nav > li > a {
+          font-size: .9625em;
+          letter-spacing: 0;
+          padding-left: $rootfontSizeRem;
+          padding-right: $rootfontSizeRem;
+        }
+
+        &.fr .navbar-nav > li > a {
+          padding-left: $rootfontSizeRem*.9;
+          padding-right: $rootfontSizeRem*.9;
+        }
+      }
+
+      @media screen and (min-width: $xl-BP) {
+        .navbar-nav > li > a, &.fr .navbar-nav > li > a {
+          font-size: .9625em;
+          letter-spacing: 0;
+          padding-left: $rootfontSizeRem*1.25;
+          padding-right: $rootfontSizeRem*1.25;
+        }
+      }
+
+      @media screen and (min-width: $xxl-BP) {
+        .navbar-nav > li > a, &.fr .navbar-nav > li > a {
+          font-size: .9625em;
+          letter-spacing: 0;
+          padding-left: $rootfontSizeRem*2.5;
+          padding-right: $rootfontSizeRem*2.5;
+        }
+      }
+    }
+
+    .navbar-toggle {
+      border: none;
+      background-color: $chartwellPrimary;
+      box-shadow: none;
+
+      &:hover {
+        background-color: $chartwellSecondary;
+      }
+    }
+
+    .navbar-nav {
+      display: inline-block;
+
+      > .active {
+        > a {
+          background-color: #6c0b42; //we don't have an active state.
+        }
+      }
+
+      > li {
+        font-size: 1.1em;
+        font-weight: 600;
+
+        .caret {
+          border-top: $standardUnit solid;
+          margin-left: $standardUnit;
+          transition: transform .35s ease-in-out;
+
+          @media screen and (max-width: $sm-BP+10) {
+            margin-left: 0.15rem;
+          }
+        }
+
+        a {
+          color: $darkestGray;
+          text-shadow: none;
+          border-left: 1px solid transparent;
+          border-right: 1px solid transparent;
+
+          &:hover {
+            animation-duration: 0.5s;
+            animation-name: topNavigationHover;
+            background-color: rgba(white, 0.15);
+            color: $chartwellPrimary;
+            border-left: 1px solid rgba(black, 0.075);
+            border-right: 1px solid rgba(black, 0.075);
+          }
+
+          &:focus {
+            background-color: rgba(white, 0.35);
+            color: black;
+          }
+        }
+
+        &.open, &.show {
+          > a, > a:focus, > a:hover {
+            background-color: white;
+            color: $chartwellPrimary;
+            background-image: none;
+            box-shadow: $standardBoxShadow;
+          }
+
+          > a {
+            border-left: 1px solid transparent;
+            border-right: 1px solid transparent;
+          }
+
+          .dropdown-menu {
+            animation-duration: .75s;
+            animation-name: fadeIn;
+          }
+
+          .caret {
+            transform: rotate(180deg);
+          }
+        }
+
+
+        ul.dropdown-menu {
+          border: 0;
+          padding: 0 0 $standardUnit*2 0;
+          margin: 0;
+          box-shadow: $higherBoxShadow;
+
+          li {
+            a {
+              padding: $standardUnit/1.25 $standardUnit*2;
+              font-weight: 600;
+              border-left: 1px solid transparent;
+              border-right: 1px solid transparent;
+
+              &:hover {
+                background-image: none;
+                border-left: 1px solid transparent;
+                border-right: 1px solid transparent;
+              }
+            }
+
+            ul.dropDown3thLevel {
+              list-style: none;
+              margin: 0;
+              padding: 0;
+
+              li {
+                font-size: 1em;
+                line-height: 1.6em;
+
+                a {
+                  display: block;
+                  padding: $standardUnit/2 $standardUnit*3 $standardUnit/2 $standardUnit*5;
+                  clear: both;
+                  font-weight: 400;
+                  color: $darkestGray;
+                  white-space: nowrap;
+
+                  &:hover {
+                    color: #262626;
+                    text-decoration: none;
+                    background-color: #f5f5f5;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #bs-example-navbar-collapse-1 ul.dropdown-menu {
+    background-color: White;
+    width: 100%;
+  }
+
+  .navbar-inverse .navbar-nav {
+    .open, .show {
+      .dropdown-menu > li > a {
+        color: black;
+      }
+    }
+  }
+}
+
+/* Bread crumbs ---------------------------------------------------- */
+.breadcrumb {
+  padding: 0px;
+  color: $midGray;
+  border-bottom: $standardBorder;
+  background-color: White;
+  border-radius: 0;
+  margin-bottom: $standardUnit;
+  font-size: $smallFontSizeRem;
+
+  .breadcrumb-item {
+    a {
+      color: $chartwellPrimary;
+      font-size: $smallFontSizeRem;
+
+      &:not([href]){
+        color: $midGray;
+      }
+
+      &.breadcrumbLink {
+        color: $chartwellPrimary;
+
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    &.active {
+      a {
+        color: $midGray;
+      }
+    }
+  }
+
+  li + li::before {
+    padding: 0;
+  }
+}
+
+.sidebar-nav {
+
+  @media screen and (min-width: $sm-BP+1) {
+    border-right: $standardBorder;
+    padding-right: $standardUnit*2;
+    padding-bottom: $standardUnit*2;
+  }
+
+  .navbar {
+    &.navbar-default {
+      background-color: white;
+      background-image: none;
+      border: none;
+      box-shadow: none;
+
+      .navbar-header {
+        text-transform: uppercase;
+
+        .navbar-toggle {
+          @media screen and (min-width: $sm-BP+1) {
+            display: none;
+          }
+
+          @media screen and (max-width: $sm-BP) {
+            display: block;
+          }
+        }
+
+        .navbar-brand {
+          font-size: $rootfontSizeRem * 1.15;
+          font-weight: bold;
+        }
+      }
+
+      .navbar-collapse {
+        padding: 0;
+        border-top: none;
+
+        @media screen and (min-width: $sm-BP+1) {
+          display: block;
+        }
+
+        @media screen and (max-width: $sm-BP) {
+          display: none !important;
+
+          &.show {
+            display: block !important;
+          }
+        }
+
+
+        .navbar-nav {
+          li {
+            @media screen and (max-width: $sm-BP) {
+              text-align: center;
+            }
+
+            a {
+              color: $chartwellPrimary;
+              font-size: $rootfontSizeRem;
+            }
+
+            &.quickLinksFirstLevel {
+              font-weight: bold;
+
+              a {
+                padding-top: $standardUnit;
+                padding-bottom: $standardUnit/2;
+                line-height: $rootfontSizeRem*1.3;
+                display: block;
+              }
+            }
+
+            ul {
+              padding-left: $standardUnit*4;
+
+              @media screen and (max-width: $sm-BP) {
+                padding-left: 0;
+              }
+
+              li {
+                font-weight: normal;
+
+                a {
+                  color: black;
+                  font-size: $rootfontSizeRem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

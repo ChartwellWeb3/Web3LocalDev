@@ -1,0 +1,20 @@
+﻿<script type="text/javascript" src="~/Assets/unitegallery/js/unitegallery.min.js"></script>
+<link href="~/Assets/unitegallery/css/unite-gallery.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="~/Assets/unitegallery/themes/slider/ug-theme-slider.js"></script>
+
+<script type="text/javascript">				
+	jQuery(document).ready(function(){
+
+		jQuery("#gallery").unitegallery({
+			gallery_theme: "slider",
+			gallery_height:500,	
+			gallery_autoplay:true,
+			slider_scale_mode: "fill",
+			slider_transition: "fade",
+			slider_transition_speed:700,
+			slider_control_zoom:false,
+		});
+	});
+
+</script>
+<!-- / END - carousel -->

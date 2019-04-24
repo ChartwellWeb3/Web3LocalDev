@@ -1,0 +1,23 @@
+﻿@model Chartwell.Feature.CorporateContact.Models.CorporateContactModel
+
+@using Sitecore.Mvc.Analytics.Extensions
+
+@Html.Sitecore().VisitorIdentification()
+
+
+@if (Model != null && !string.IsNullOrEmpty(Model.FirstName) && !Model.SendEmailError)
+{
+  <div class="resFormConfirmationCorporate">
+    <h4><strong>@Model.ContactUsConfirmMsg1</strong></h4>
+    <p>@Model.ContactUsConfirmMsg2</p>
+    <hr />
+    <p><small><em>@Model.ContactUsConfirmMsg3</em></small></p>
+  </div>
+
+  /* <div class="resFormConfirmation">
+     <h4><strong>@Sitecore.Globalization.Translate.Text("ContactUsConfirmMsg1")</strong></h4>
+     <p>@Sitecore.Globalization.Translate.Text("ContactUsConfirmMsg2")</p>
+     <hr />
+     <p><small><em>@Sitecore.Globalization.Translate.Text("ContactUsConfirmMsg3")</em></small></p>
+   </div>*/
+}

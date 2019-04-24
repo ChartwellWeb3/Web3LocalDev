@@ -1,0 +1,79 @@
+﻿@model  IEnumerable<Chartwell.Feature.NearbyResidences.Models.NearbyResidencesModel>
+
+@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using Sitecore.Data
+@using Sitecore.Mvc.Analytics.Extensions
+
+@Html.Sitecore().VisitorIdentification()
+
+@if (Model != null && Model.Count() > 0)
+{
+
+  <div class="container-fluid nearby hidden-print">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h3>@Model.First().PageHeader</h3>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        @{
+          var i = 0;
+        }
+
+
+        @foreach (var residence in Model)
+        {
+          if (i < 4)
+          {
+            var selectedProperty = residence.PropertyName.ToString();
+
+
+            <div class="col-xs-12 col-sm-6 col-md-3">
+
+
+              <!-- new layout -->
+              <a href="@residence.PropertyItemUrl" class="panel panel-info">
+
+                @if (String.IsNullOrEmpty(Convert.ToString(@Html.Sitecore().Field("Thumbnail Photo", @residence.InnerItem))))
+                {
+                  <img class="img-responsive" src="@Url.Content("~/Assets/Images/Layout/Chartwell Pembroke Heritage Retirement Residence.jpg")" alt="@residence.PropertyName">
+                }
+                else
+                {
+                  @Html.Sitecore().Field("Thumbnail Photo", @residence.InnerItem, new { @class = "img-responsive", @mw = "275" })
+
+                }
+                <div class="panel-heading">
+                  <h3 class="panel-title">@Html.Label(residence.PropertyName.ToString())</h3>
+                </div>
+                <div class="panel-body">
+
+                  <address>
+                    <div class="col-xs-2 col-sm-2 col-md-2">
+                      <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-xs-10 col-sm-10 col-md-10">
+                      @residence.PropertyFormattedAddress
+                    </div>
+                  </address>
+
+                </div>
+                <div class="panel-footer">
+                  <h4><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> @Html.Label(residence.PhoneNo.ToString())</h4>
+                  <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Distance: @Html.FormatValue(residence.Distance, "{0:##0.0#}") KM</p>
+                </div>
+              </a><!-- / .panel -->
+            </div><!-- / .col-md-3 -->
+            i = i + 1;
+          }
+        }
+      </div>
+    </div>
+  </div>
+}
+

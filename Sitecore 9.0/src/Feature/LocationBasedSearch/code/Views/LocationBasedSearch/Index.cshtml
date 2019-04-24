@@ -1,0 +1,59 @@
+﻿@model Chartwell.Feature.MainSearch.Models.PropertyModel.PropertySearchModel
+
+@Html.HiddenFor(m => m.Language)
+<div id="nearResidenceId" class="nearestResidencesTopRight hide">
+  <div id="locDiv" class="text-left">
+    <span>@Sitecore.Globalization.Translate.Text("Nearest Residence")</span><br />
+    @*@if (Sitecore.Context.Language.Name == "en")
+    {
+      <span>Nearest Residence</span><br />
+    }
+    else
+    {
+      <span>Résidence la plus près Résidence la plus proche</span><br />
+    }*@
+    <span class="closest"></span>
+    @*<a id="locSearch" href=@Model.PropertyItemUrl>@Model.PropertyName</a>*@
+  </div>
+</div>
+
+@*Moved LocationBasedSearch.js to basic.cshtml*@
+@*<script src="~/Assets/js/LocationBasedSearch.js"></script>*@
+@*
+      <script type="text/javascript">
+      //script below is for testing on chartwelllab do NOT deploy without commenting out
+
+      //if (navigator.geolocation) {
+      //  navigator.geolocation.getCurrentPosition(onPositionUpdate);
+      //}
+      //else
+      //  alert("navigator.geolocation is not available");
+
+      onPositionUpdate();
+      function onPositionUpdate() {
+        var Lat = 43.618532699999996;
+        var Lng = -79.67400459999999;
+
+
+        $.ajax({
+          url: "/api/sitecore/LocationBasedSearch/LatLngSearch",
+          type: "GET",
+          dataType: "json",
+          data: { Latitude: Lat, Longitude: Lng },
+          success: function (data) {
+            console.log("city:" + data.City);
+            if (data.City != null && data.City != "") {
+              $("#City").val(data.City);
+              var link = $("<a>");
+              link.attr("href", data.PropertyItemUrl);
+              link.text(data.PropertyName);
+              link.addClass("link");
+              $("#locDiv .closest").html(link);
+              $('#nearResidenceId').removeClass('hide');
+            }
+          }
+        });
+
+      }
+    </script>
+*@

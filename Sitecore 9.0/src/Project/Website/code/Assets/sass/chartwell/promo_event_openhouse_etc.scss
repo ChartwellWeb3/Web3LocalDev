@@ -1,0 +1,130 @@
+﻿@import "_variables.scss";
+
+/* Open House Top Banner -------------------------------------------------------- */
+#OpenHousePromo.top-banner {
+  font-family: $headingFontStack;
+  display: block;
+  background-color: rgba( $chartwellSecondary, 0.95);
+  color: white;
+  box-shadow: $standardBoxShadow;
+  width: 100%;
+  z-index: 9999;
+  height: 60px;
+
+  img.promoImg {
+    height: 60px;
+  }
+
+  &.animated {
+    opacity: 1;
+    display: block;
+    animation-delay: .5s;
+  }
+
+  .content {
+    padding: 0 20px;
+
+    h2  {
+      font-weight: bold;
+      padding: 0;
+      color: white;
+      font-size: 24px;
+    }
+
+    h4 {
+      margin-top: $standardUnit*1.25;
+      font-size: $rootfontSizeRem * 1.25;
+      color: white;
+
+      strong {
+        display: inline-block;
+      }
+
+      small {
+        display: block;
+        color: white;
+        font-family: $primaryFontStack;
+        margin-top: $rootfontSizeRem/2;
+      }
+    }
+
+    @media screen and (max-width: $sm-BP) {
+    }
+
+    @media screen and (max-width: $xs-sm-BP) {
+      h4 {
+        margin-top: $standardUnit/2;
+        font-size: $rootfontSizeRem;
+
+        strong {
+          font-size: $rootfontSizeRem *1.05;
+        }
+      }
+    }
+  }
+
+  .close-btn {
+    display: inline-block;
+    width: 60px;
+    padding: 10px;
+    cursor: pointer;
+    float: right;
+
+    .fa-times {
+      font-size: 25px;
+    }
+  }
+
+  @media screen and (max-width: $xs-sm-BP) {
+    .content {
+      padding: 0 5px;
+    }
+  }
+}
+
+@media screen and (max-width: $xs-sm-BP){
+  .content {
+    padding: 0 5px;
+  }
+  .top-banner{
+    height: 65px;
+  }
+}
+
+
+/*-- Promo Banner  --------------------------------------- */
+
+.bannerBlue {
+  margin: 10px 5px 25px 15px;
+  text-align: center;
+  color: #666;
+  clear: both;
+}
+
+.bannerBlue .row {
+  border: 1px solid #cfe9f6;
+  margin-right: 0px;
+}
+
+.bannerBlue .col-sm-2 img {
+  margin: 0 auto;
+  display: block;
+  height: 50px;
+  opacity: .5;
+}
+
+.bannerBlue .row .col-sm-10 {
+  background-color: #cfe9f6;
+  background-image: url(/Assets/Images/Layout/banner-bg-blue-7.png);
+}
+
+.bannerBlue .row .col-sm-10 h3 {
+  color: #666 !important;
+  line-height: 1.6em;
+  margin-top: 8px;
+}
+
+.bannerBlue .row .col-sm-10 h3 small {
+  color: #666 !important;
+}
+

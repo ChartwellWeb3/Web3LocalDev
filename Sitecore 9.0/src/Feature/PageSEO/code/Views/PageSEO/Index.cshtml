@@ -1,0 +1,15 @@
+﻿@model Chartwell.Feature.PageSEO.Models.PageMetaDataModel
+@using Sitecore.Mvc.Analytics.Extensions
+
+@Html.Sitecore().VisitorIdentification()
+
+<title>@Model.PageTitle</title>
+<meta name="description" id="description" content="@Model.PageDescription" />
+<meta name="keywords" id="keywords" content="@Model.PageKeyword" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="CODE_LANGUAGE" content="C#" />
+<meta name="vs_defaultClientScript" content="JavaScript" />
+<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+

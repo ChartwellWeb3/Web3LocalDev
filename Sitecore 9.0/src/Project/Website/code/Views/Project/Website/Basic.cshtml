@@ -1,0 +1,96 @@
+﻿@{ Layout = null;
+
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="UTF-8" />
+  @Html.Sitecore().Placeholder("Page.SEO")
+  <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none'" />
+  <link rel="icon" type="image/png" href="~/Assets/Images/Layout/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="~/Assets/Images/Layout/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="~/Assets/Images/Layout/favicon-192x192.png" sizes="192x192" />
+  <link rel="icon" type="image/png" href="~/Assets/Images/Layout/favicon-32x32.png" sizes="32x32" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Lato|Montserrat|Open+Sans|Open+Sans+Condensed:300|Quicksand" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" />
+  <script src="~/Assets/js/vendor.js"></script>
+  <link href="~/Assets/Styles/vendor.css" rel="stylesheet" />
+  <link href="~/Assets/Styles/chartwell.css" rel="stylesheet" />
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-56FVJBX');</script>
+  <!-- End Google Tag Manager -->
+  <script>
+  var ChartwellGlobalLang = '@Model.Item.Language.Name';
+  </script>
+</head>
+
+<body class="cwBody @Model.Item.Language.Name">
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56FVJBX"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  @Html.Sitecore().Placeholder("Page.Top")
+  <header class="header-static">
+    @Html.Sitecore().Placeholder("Page.Header")
+    @Html.Sitecore().Placeholder("Page.TopNav")
+    @Html.Sitecore().Placeholder("Page.SearchBar")
+  </header><br />
+  @*@Html.Sitecore().Placeholder("Page.RecentViews")*@
+
+  <!-- =========================
+  Sub Layouts - START
+  ============================== -->
+  @Html.Sitecore().Placeholder("Page.Grid")
+  <!-- =========================
+  / Sub Layouts - END
+  ============================== -->
+  <footer class="container-fluid hidden-print">
+    @Html.Sitecore().Placeholder("Page.Footer")
+  </footer>
+
+
+   
+  <style type="text/css">
+    .fancybox-thumbs {
+      top: auto;
+      width: auto;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 95px;
+      padding: 10px 10px 5px 10px;
+      box-sizing: border-box;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .fancybox-show-thumbs .fancybox-inner {
+      right: 0;
+      bottom: 95px;
+    }
+
+    .fancybox-button--share {
+      display: none !important;
+    }
+  </style>
+
+  <script src="~/Assets/js/chartwell.js"></script>
+</body>
+
+</html>

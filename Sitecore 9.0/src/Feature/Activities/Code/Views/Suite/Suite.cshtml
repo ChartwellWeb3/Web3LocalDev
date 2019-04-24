@@ -1,0 +1,15 @@
+﻿@model Chartwell.Feature.Activities.Models.ActivitiesModel
+
+@using Sitecore.Mvc
+@using Sitecore.Mvc.Extensions
+@using Sitecore.Mvc.Presentation
+@using Sitecore.Data
+
+<h1 class="resName">@Html.Sitecore().Field("Property Name", @Model.InnerItem) </h1>
+<address class="resAddress">
+    @Model.PropertyFormattedAddress
+
+</address>
+<blockquote class="resQuote blockquote">@Model.PropertyTagLine</blockquote>
+
+<h2>@Sitecore.Globalization.Translate.Text("SuitePlans")</h2>

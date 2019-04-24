@@ -1,0 +1,14 @@
+﻿@Html.Sitecore().Placeholder("Grid.Above")
+<div class="container-fluid">
+  <div class="row border-between">
+    <div class="col-sm-12 col-md-9">
+      @Html.Sitecore().Placeholder("Grid.Center")
+    </div>
+    <div class="col-sm-12 col-md-3">
+      @Html.Sitecore().Placeholder("Grid.Right")
+      @Html.Sitecore().Placeholder("Grid.Left")
+    </div>
+  </div>
+  @Html.Sitecore().Placeholder("Grid.Below")
+</div>
+@Html.Sitecore().Placeholder("Grid.Nearby")

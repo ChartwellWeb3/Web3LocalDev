@@ -1,0 +1,144 @@
+﻿@model Chartwell.Feature.ContactUS.Models.ContactUSModel
+@using Sitecore.Mvc.Analytics.Extensions
+
+@Html.Sitecore().VisitorIdentification()
+
+<style>
+  .readonlydatepicker .form-control[readonly] {
+    background-color: White;
+  }
+</style>
+
+@*<div id="ContactMsg">*@
+@using (Ajax.BeginForm("Index", "ContactUS", new AjaxOptions
+{
+  HttpMethod = "POST",
+  UpdateTargetId = "ContactMsg",
+  LoadingElementId = "divLoading"
+  //OnBegin = "ClearResults"
+},
+  new { @id = "ContactUsForm" }))
+{
+  @Html.ValidationSummary(true)
+  @Html.AntiForgeryToken()
+  @Html.HiddenFor(m => m.PropertyName)
+  @Html.HiddenFor(m => m.PropertyPhoneNo)
+  @Html.HiddenFor(m => m.NonContactUsFormName)
+  @Html.HiddenFor(m => m.SplitterPageContactUsHeader)
+  @Html.HiddenFor(m => m.PropertyType)
+  @Html.HiddenFor(m => m.ItemLanguage)
+  @Html.HiddenFor(m => m.YardiID)
+
+  @Html.HiddenFor(m => m.DisplayEmailFirstName)
+  @Html.HiddenFor(m => m.DisplayEmailLastName)
+  @Html.HiddenFor(m => m.DisplayEmailPhoneNo)
+  @Html.HiddenFor(m => m.DisplayEmailId)
+  @Html.HiddenFor(m => m.DisplayEmailVisitDate)
+  @Html.HiddenFor(m => m.DisplayEmailVisitTime)
+  @Html.HiddenFor(m => m.DisplayEmailQuestion)
+  @Html.HiddenFor(m => m.DisplayEmailConsent)
+  @Html.HiddenFor(m => m.ContactUsConfirmMsg1)
+  @Html.HiddenFor(m => m.ContactUsConfirmMsg2)
+  @Html.HiddenFor(m => m.PVConfirmationMsg)
+  @Html.HiddenFor(m => m.ChartwellEmail)
+
+<div class="hidden-print panel panel-primary resForm" id="chartwellResidencesContactForm">
+
+  <h3>@Sitecore.Globalization.Translate.Text("Questions about residence")</h3>
+  <hr size="1" />
+  @if (!string.IsNullOrEmpty(@Model.PropertyPhoneNo))
+  {
+    <h3><a href="tel:@Model.PropertyPhoneNo" class="phoneNumber">@Model.PropertyPhoneNo</a></h3>
+
+  }
+  else
+  {
+    <h3><a href="tel:1-855-461-0685" class="phoneNumber">1 855 461 0685</a></h3>
+  }
+  <hr size="1" />
+  <br />
+
+  <div id="ContactMsg">
+    <div class="form-group">
+      @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control firstName", placeholder = @Sitecore.Globalization.Translate.Text("FirstName") + " (" + Sitecore.Globalization.Translate.Text("Required") + ")" })
+      @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+      @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = @Sitecore.Globalization.Translate.Text("LastName") })
+      @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+      @Html.TextBoxFor(m => m.ContactPhoneNo, new { mask = "(999) 999-9999", @class = "form-control", placeholder = @Sitecore.Globalization.Translate.Text("PhoneNo") })
+      @Html.ValidationMessageFor(m => m.ContactPhoneNo, "", new { @class = "text-danger" })
+
+    </div>
+    <div class="form-group">
+      @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control contactEmail", placeholder = @Sitecore.Globalization.Translate.Text("Email") + " (" + Sitecore.Globalization.Translate.Text("Required") + ")" })
+      @Html.ValidationMessageFor(m => m.EmailAddress, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+      @Html.TextAreaFor(m => m.Question, new { @class = "form-control", @placeholder = @Sitecore.Globalization.Translate.Text("Questions") })
+      @Html.ValidationMessageFor(m => m.Question, "", new { @class = "text-danger" })
+    </div>
+    @if (Model.PropertyType == "PropertyContactUsFormSubmit")
+    {
+      <div class="row readonlydatepicker">
+        <div class="col-xs-12">
+          @Html.Label(@Sitecore.Globalization.Translate.Text("WouldYouLikeATour"), new { @id = "personalvisit" })
+        </div>
+        <div class="col-xs-10 form-group">
+          @Html.TextBoxFor(m => m.VisitDate, new { @class = "form-control visitdate-" + Sitecore.Context.Language.Name, @id = "visitdate", @placeholder = @Sitecore.Globalization.Translate.Text("PreferredDate") })
+        </div>
+        <div class="col-xs-12 form-group">
+          @Html.DropDownListFor(m => m.TimeOfDayForVisit, new SelectList(Model.TimeOfDayOfVisitList, "Value", "Text"), new { @class = "form-control" })
+        </div>
+      </div>
+    }
+
+
+    <div class="row">
+      <div class="col-sm-12">
+        @Html.Label(@Sitecore.Globalization.Translate.Text("ConsentToConnect") + " (" + Sitecore.Globalization.Translate.Text("Required") + ")")
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="form-group" style="margin-left:30px">
+              <div class="radio">
+                @Html.RadioButtonFor(m => m.ConsentToConnect, "true", false) @Html.Label(@Sitecore.Globalization.Translate.Text("OptionYes"), new { @style = "padding-left:0px" })
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="form-group" style="margin-left:22px">
+              <div class="radio">
+                @Html.RadioButtonFor(m => m.ConsentToConnect, "false", false) @Html.Label(@Sitecore.Globalization.Translate.Text("OptionNo"), new { @style = "padding-left:0px" })
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">@Html.ValidationMessageFor(m => m.ConsentToConnect, "", new { @class = "text-danger" })</div>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <button type="submit" id=@Model.PropertyType value="Submit" class="btn btn-warning" style='width:100px'>@Sitecore.Globalization.Translate.Text("ButtonText")</button>
+      </div>
+    </div>
+
+  </div>
+  
+
+
+  <div id="divLoading">
+    <img src="~/Assets/Images/loading.gif" style="position: relative; top: 50%;" />
+  </div>
+
+</div>
+}
+@*<script>
+  $(function () {
+    $('[mask]').each(function (e) {
+      $(this).mask($(this).attr('mask'));
+    });
+  });
+</script>*@

@@ -1,0 +1,185 @@
+﻿@model  List<Chartwell.Feature.MainSearch.Models.PropertyModel.PropertySearchModel>
+@using Sitecore.Mvc
+@using Chartwell.Foundation.utility
+@using Sitecore.Mvc.Analytics.Extensions
+@using Chartwell.Foundation.utility
+
+@Html.Sitecore().VisitorIdentification()
+
+@Html.AntiForgeryToken()
+
+@{
+  ChartwellUtiles utilities = new ChartwellUtiles();
+  Layout = null;
+}
+
+@if (Model != null)
+{
+  {
+    bool isCityLandingPage = Model.Select(x => x.CityLandingPage).FirstOrDefault();
+    bool isSearchResults = Model.Select(x => x.SearchResults).FirstOrDefault();
+    <div id="CityLandingPageList">
+      @if (isSearchResults)
+      {
+        if (isCityLandingPage)
+        {
+          <div class="row staticPage">
+
+            <div class="col-md-12 text-center ">
+              <h1>@Sitecore.Globalization.Translate.Text(@Model[0].CityLandingPageText) @Model[0].SearchText</h1>
+
+              @if (Convert.ToBoolean(Model[0].IsRegion))
+              {
+                <div class="col-xs-12 col-xs-offset-0 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                  @Html.DropDownListFor(m => m[0].RegionList, Model[0].RegionList as List<SelectListItem>, new { onchange = "document.location.href = this.options[this.selectedIndex].value;", @class = "form-control regionDropDown" })
+                </div>
+                <div class="col-md-12">
+                  <hr />
+                </div>
+              }
+              else
+              {
+                @Ajax.ActionLink(utilities.GetDictionaryItem("Retirement Residences", Model[0].Language), "CityLandingPage", "SearchResultsGrid", new { SearchText = Model[0].SearchText, CityLandingPageButton = "RET", SearchType = Model[0].SearchType, PageSize = 0, IsRegion = Model[0].IsRegion, Language = Model[0].Language, FoundCitySearch = Model[0].FoundCitySearch }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "CityLandingPageList", LoadingElementId = "searchoverlay" }, new { @class = "btn btn-default selected", id = "test" })
+                @Ajax.ActionLink(utilities.GetDictionaryItem("Long Term Care Residences", Model[0].Language), "CityLandingPage", "SearchResultsGrid", new { SearchText = Model[0].SearchText, CityLandingPageButton = "LTC", SearchType = Model[0].SearchType, PageSize = 0, IsRegion = Model[0].IsRegion, Language = Model[0].Language, FoundCitySearch = Model[0].FoundCitySearch }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "CityLandingPageList", LoadingElementId = "searchoverlay" }, new { @class = "btn btn-default selected", id = "test1" })
+                <hr />
+              }
+            </div>
+          </div>
+        }
+        else
+        {
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h2>@Sitecore.Globalization.Translate.Text(@Model[0].CityLandingPageText) @Model[0].SearchText</h2>
+            </div>
+            <div class="col-xs-12 col-xs-offset-0 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+              @if (Convert.ToBoolean(Model[0].IsRegion))
+              {
+                @Html.DropDownListFor(m => m[0].RegionList, Model[0].RegionList as List<SelectListItem>, new { onchange = "document.location.href = this.options[this.selectedIndex].value;", @class = "form-control regionDropDown" })
+              }
+            </div>
+
+            <div class="col-md-12">
+              <hr />
+            </div>
+          </div><!-- / .row -->
+        }
+      }
+      else
+      {
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h2>@Sitecore.Globalization.Translate.Text(@Model[0].CityLandingPageText) @Model[0].SearchText</h2>
+          </div>
+          <div class="col-xs-12 col-xs-offset-0 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+            @if (Convert.ToBoolean(Model[0].IsRegion))
+            {
+              if (@Sitecore.Context.Language.Name == "en")
+              {
+                @Html.DropDownListFor(m => m[0].RegionList, Model[0].RegionList as List<SelectListItem>, new { onchange = "document.location.href = this.options[this.selectedIndex].value;", @class = "form-control regionDropDown" })
+              }
+              else
+              {
+                @Html.DropDownListFor(m => m[0].RegionList, Model[0].RegionList as List<SelectListItem>, new { onchange = "document.location.href = this.options[this.selectedIndex].value;", @class = "form-control regionDropDown" })
+              }
+            }
+
+          </div>
+
+          <div class="col-md-12">
+            <hr />
+          </div>
+        </div><!-- / .row -->
+      }
+      <div id="searchoverlay">
+        <img src="~/Assets/Images/loading.gif" style="position: relative; top: 50%;" />
+      </div>
+
+      <div class="row">
+        <div class="gridCity">
+          @foreach (var property in Model)
+          {
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <div class="panel panel-primary">
+                @if (String.IsNullOrEmpty(Convert.ToString(@Html.Sitecore().Field("Thumbnail Photo", @property.InnerItem))))
+                {
+                  <a href="@property.PropertyItemUrl"><img class="img-responsive" src="@Url.Content("~/Assets/Images/Layout/Chartwell Pembroke Heritage Retirement Residence.jpg")" alt="@property.PropertyName"></a>
+                }
+                else
+                {
+                  <a href="@property.PropertyItemUrl">  <img src="@Url.Content(@property.PropertyImage)" alt="@property.PropertyName"></a>
+                  @*<a href="@property.PropertyItemUrl">  @Html.Sitecore().Field("Thumbnail Photo", @property.InnerItem, new { @class = "img-responsive", @mw = "275" })</a>*@
+                }
+
+                @Html.HiddenFor(p => property.ItemID)
+                @Html.HiddenFor(p => property.PropertyID)
+                @Html.HiddenFor(p => property.PropertyName)
+                @Html.HiddenFor(p => property.StreetName)
+                @Html.HiddenFor(p => property.City)
+                @Html.HiddenFor(p => property.PostalCode)
+                @Html.HiddenFor(p => property.Province)
+                @Html.HiddenFor(p => property.PropertyDesc)
+                @Html.HiddenFor(p => property.PropertyTagLine)
+                @Html.HiddenFor(p => property.USP)
+
+                <div class="panel-heading">
+                  <h3 class="panel-title"><a href="@property.PropertyItemUrl"><span>@property.PropertyName</span></a></h3>
+                </div>
+                <div class="panel-body">
+                  <p>@Html.Raw(property.USP)</p>
+
+                  <address>
+                    <div class="col-xs-2 col-sm-2 col-md-2">
+                      <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-xs-10 col-sm-10 col-md-10">
+                      @property.PropertyFormattedAddress
+                    </div>
+                  </address>
+                </div>
+                <div class="panel-footer">
+                  <h4>
+                    <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> <a href="tel:@property.PhoneNo">
+                      @property.PhoneNo
+                    </a>
+                  </h4>
+                  @if (isSearchResults)
+                  {
+                    <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> @utilities.GetDictionaryItem("Distance", Model[0].Language): @Html.FormatValue(@property.Distance, "{0:##0.0#}") KM</p>
+                  }
+                  <div class="viewResBtn text-right">
+                    <a href="@property.PropertyItemUrl" type="button" class="btn btn-warning">@utilities.GetDictionaryItem("View Residence", Model[0].Language)</a>
+                  </div>
+                </div>
+              </div><!-- / panel -->
+            </div>
+          }
+        </div><!-- / .gridCity -->
+      </div><!-- / .row -->
+      @if (Model[0].PageSize <= Model.Count)
+      {
+        if (Model[0].CityLandingPageButton == "RET")
+        {
+          @Ajax.ActionLink(utilities.GetDictionaryItem("View More Retirement Homes", Model[0].Language), "CityLandingPage", "SearchResultsGrid", new { SearchText = Model[0].SearchText, CityLandingPageButton = Model[0].CityLandingPageButton, SearchType = Model[0].SearchType, PageSize = Model[0].PageSize, IsRegion = Model[0].Display_RegionsDD, Language = Model[0].Language, FoundCitySearch = Model[0].FoundCitySearch }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "CityLandingPageList", LoadingElementId = "searchoverlay" }, new { @class = "btn btn-default selected" })
+        }
+        else
+        {
+          @Ajax.ActionLink(utilities.GetDictionaryItem("ViewMoreLongTermResidences", Model[0].Language), "CityLandingPage", "SearchResultsGrid", new { SearchText = Model[0].SearchText, CityLandingPageButton = Model[0].CityLandingPageButton, SearchType = Model[0].SearchType, PageSize = Model[0].PageSize, IsRegion = Model[0].Display_RegionsDD, Language = Model[0].Language, FoundCitySearch = Model[0].FoundCitySearch }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "CityLandingPageList", LoadingElementId = "searchoverlay" }, new { @class = "btn btn-default selected" })
+        }
+      }
+      <br/><br />
+    </div><!-- / .CityLandingPageList -->
+    //}
+  }
+}
+<script type="text/javascript">
+  function ResetPage(xhr, request) {
+    var requestParams = request.url.split('&');
+
+    var newUrl = requestParams[0] + "&" + requestParams[1] + "&" + requestParams[2] + "&" + requestParams[3] + "&" + requestParams[4] + "&" + requestParams[5] + "&" + requestParams[6];
+    request.url = newUrl;
+  }
+</script>
+
+
+

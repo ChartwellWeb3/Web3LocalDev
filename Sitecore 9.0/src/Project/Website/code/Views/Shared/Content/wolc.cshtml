@@ -1,0 +1,18 @@
+﻿<script type="text/javascript" src="~/Assets/unitegallery/js/unitegallery.min.js"></script>
+<link href="~/Assets/unitegallery/css/unite-gallery.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="~/Assets/unitegallery/themes/slider/ug-theme-slider.js"></script>
+
+<script type="text/javascript">
+  var wolcGalleries = jQuery('.wolcGallery');
+  for (var c = 0; c < wolcGalleries.length; c++) {
+    var elementID = wolcGalleries[c].id;
+    if (elementID) {
+      jQuery('#'+elementID).unitegallery({
+        gallery_theme: "slider",
+        gallery_autoplay: false,
+        slider_scale_mode: "fit"
+      });
+    }
+  }
+</script>
+<!-- / END - WOLC -->

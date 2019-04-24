@@ -1,0 +1,54 @@
+﻿@model Chartwell.Feature.MainSearch.Models.PropertyModel.PropertySearchModel
+@using Sitecore.Mvc.Analytics.Extensions
+
+@Html.Sitecore().VisitorIdentification()
+
+@{
+  using (Html.BeginForm(FormMethod.Post))
+  {
+    <div class="container-fluid searchBar hidden-print">
+      <div class="searchGradient">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <form class="form-inline">
+                <div class="col-xs-12 col-md-2" style="padding-left:0px; padding-right:0px;">
+                  @Html.HiddenFor(m => m.Language)
+                  @*@Html.HiddenFor(m => m.Lat)
+                    @Html.HiddenFor(m => m.Lng)*@
+
+                  <p>@Sitecore.Globalization.Translate.Text("Find a residence")</p>
+                </div>
+                <div class="col-xs-3 residenceSearchformColumn">
+                  <div class="form-group">
+                    @*@Html.LabelFor(m => m.PropertyName, new { @class = "required control-label" })<sup>(required)</sup>*@
+                    @Html.TextBoxFor(m => m.City, new { @class = "form-control", placeholder = @Sitecore.Globalization.Translate.Text("City Name") })
+                  </div>
+                </div>
+                <div class="col-xs-3 residenceSearchformColumn">
+                  <div class="form-group">
+                    @Html.TextBoxFor(m => m.PostalCode, new { mask = "a9a 9a9", @class = "form-control", placeholder = @Sitecore.Globalization.Translate.Text("Postal Code") })
+                  </div>
+                </div>
+                <div class="col-xs-6 col-md-4 residenceSearchformColumn">
+                  <div class="form-group">
+                    <div class="input-group">
+                      @Html.TextBoxFor(m => m.PropertyName, new { @class = "form-control", placeholder = @Sitecore.Globalization.Translate.Text("Residence Name") })
+                      <div class="input-group-btn">
+                        <button type="submit" id="ChartwellSearch" class="btn btn btn-warning submit" style="color:black; letter-spacing:1px; font-weight:bold;">
+                          <span class="btn-label">@Sitecore.Globalization.Translate.Text("Search")</span> 
+                          <span class="glyphicon glyphicon-search" aria-hidden="true" aria-label="@Sitecore.Globalization.Translate.Text("Search")"></span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- / Search Bar-->
+  }
+}

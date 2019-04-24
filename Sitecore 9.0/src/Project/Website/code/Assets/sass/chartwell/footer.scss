@@ -1,0 +1,50 @@
+﻿@import "_variables.scss";
+
+footer.container-fluid:not(:empty) {
+  color: black;
+  border-top: $doubleBorder;
+  background: $lighterGray;
+  padding: $standardUnit*4 $standardUnit*6;
+  overflow: auto;
+
+  h4 {
+    border-bottom: $standardBorder;
+    padding-bottom: $standardUnit;
+    font-size: $rootfontSizeRem * 1.15;
+    text-transform: uppercase;
+    color: black;
+    box-shadow: $insetBoxShadow;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+
+  ul.socialBar {
+    float: right;
+
+    li {
+      float: right;
+    }
+  }
+
+  li {
+    line-height: 2em;
+
+    a {
+      padding: 4px;
+    }
+  }
+}
+@media screen and (max-width: $sm-BP) {
+  footer.container-fluid {
+    padding: $standardUnit*4;
+  }
+}
+
+@media screen and (max-width: $xs-sm-BP) {
+  footer.container-fluid {
+    padding: $standardUnit*2;
+  }
+}

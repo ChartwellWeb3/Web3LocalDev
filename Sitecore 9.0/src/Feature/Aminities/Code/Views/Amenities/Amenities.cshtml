@@ -1,0 +1,60 @@
+﻿@model Chartwell.Feature.Amenities.Models.AmenitiesModel
+
+@using Sitecore.Mvc
+@using Sitecore.Mvc.Extensions
+@using Sitecore.Mvc.Presentation
+@using Sitecore.Data
+@using Sitecore.Mvc.Analytics.Extensions
+
+@Html.Sitecore().VisitorIdentification()
+
+@{
+  var itemid = @Model.PropertyGuid;
+}
+<h1 class="resName">@Model.PropertyName</h1>
+<address class="resAddress">
+  @Model.PropertyFormattedAddress
+
+</address>
+<blockquote class="resQuote blockquote">@Model.PropertyTagLine</blockquote>
+@*@Html.Sitecore().Field("Amenities Section Description")*@
+<h2>@Model.AmenitiesTitle</h2>
+
+
+
+<!-- Photo Section Start -->
+@if (!String.IsNullOrEmpty(Convert.ToString(@Html.Sitecore().Field("Amenities Photo", @Model.InnerItem))))
+{
+  <div class="pull-right hidden-sm hidden-xs inline-img-right paragraphMedia">
+
+
+    @Html.Sitecore().Field("Amenities Photo", @Model.InnerItem, new { @class = "large-image", @mw = "275" })
+
+  </div>
+}
+else
+{
+  <div class="pull-right hidden-sm hidden-xs inline-img-right paragraphMedia">
+
+
+    @Html.Sitecore().Field("Thumbnail Image", @Model.TemplateItem, new { @class = "large-image", @mw = "275" })
+
+  </div>
+}
+
+<p>@Model.AmenitiesDescription</p>
+<!-- Photo Section End -->
+<ul class="treeList">
+  @using (Html.EditFrame(@itemid.ToString(), "Chartwell Amenities", null, null, null, null))
+  {
+    foreach (Sitecore.Data.Items.Item listItem in @Model.AmenitiesItem)
+    {
+
+      <li> @listItem.Fields["Amenity Name"]</li>
+    }
+  }
+</ul>
+<!-- print and PDF bar -->
+<div class="resBottomBar hidden-print">
+  <ul><li class="col-xs-12 col-sm-6 resPrintBut"> <a href="javascript:window.print()"><span class="glyphicon glyphicon-print" aria-hidden="true"></span>@Sitecore.Globalization.Translate.Text("Click Here To Print")</a></li></ul>
+</div>

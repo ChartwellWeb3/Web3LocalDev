@@ -1,0 +1,87 @@
+﻿@model Chartwell.Feature.Photo.Model.PhotoGalleryModel
+@using Sitecore.Mvc.Analytics.Extensions
+
+@Html.Sitecore().VisitorIdentification()
+
+@{
+  var i = 0;
+}
+@if (!@Model.ImageUrls.Any())
+{
+  <div id="bgPropertyImage" class="hidden-print ResidenceBgImg" style="background-image: none;">
+
+  </div>
+}
+@if (@Model.ImageUrls.Count > 1)
+{
+
+  <div id="carouselNewDevelopment" class="carousel slide" data-ride="carousel">
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+      @foreach (var imageUrl in @Model.ImageUrls)
+      {
+
+        var cssClass = "";
+        if (i == 0)
+        {
+          cssClass = "active";
+        }
+
+      <div class="carousel-item @cssClass" style="background-image: url(@imageUrl);">
+        <!--<img src="@imageUrl" alt="Slide @i" />-->
+      </div>
+        i = i + 1;
+      }
+    </div>
+
+
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carouselNewDevelopment" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carouselNewDevelopment" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+
+
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      @for (int j = 0; j < i; j++)
+      {
+        if (j == 0)
+        {
+          <li data-target="#carouselNewDevelopment" data-slide-to="0" class="active"></li>
+        }
+        else
+        {
+          <li data-target="#carouselNewDevelopment" data-slide-to="@j"></li>
+        }
+
+      }
+    </ol>
+  </div>
+
+}
+else
+{
+
+  <div>
+    @foreach (var imageUrl in @Model.ImageUrls)
+    {
+
+
+
+
+      <div id="bgPropertyImage" class="hidden-print ResidenceBgImg" style="background-image: url(@imageUrl);">
+
+      </div>
+
+    }
+  </div>
+
+}

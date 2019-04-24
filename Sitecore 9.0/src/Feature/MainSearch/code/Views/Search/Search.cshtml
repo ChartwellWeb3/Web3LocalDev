@@ -1,0 +1,65 @@
+﻿@model  IEnumerable<Chartwell.Feature.MainSearch.Models.PropertyModel.PropertySearchModel>
+@using Sitecore.Mvc
+
+@{
+    Layout = null;
+   
+}
+
+*/
+@*@using (Html.BeginForm("Index", "../../Overview"))
+
+{*@
+    @Html.AntiForgeryToken()
+
+    @foreach (var property in Model)
+    {
+      <div>
+        <img src="@Url.Content("~/Assets/Images/Layout/Chartwell Pembroke Heritage Retirement Residence.jpg")" alt="Image" />
+      </div>
+      <div>
+        @Html.ActionLink(property.PropertyName, "../../../" + property.Url)<span> - @property.Language</span>
+       @Html.Hidden("hiddenValue", property.ItemID)
+           @Html.HiddenFor(p => property.PropertyName)
+        @*@Html.HiddenFor(p=>property.Language)
+        @Html.HiddenFor(p=>property.Url)
+        @Html.HiddenFor(p=>property.StreetName)
+        @Html.HiddenFor(p=>property.City)
+        @Html.HiddenFor(p=>property.PostalCode)
+        @Html.HiddenFor(p=>property.PropertyDesc)
+        @Html.HiddenFor(p=>property.PropertyTagLine)
+        @Html.HiddenFor(p=>property.USP)*@
+
+
+      </div>
+      <div>
+        @Html.Raw(property.USP)
+      </div>
+      <div>
+        @Html.Label(property.ItemID)
+        @Html.HiddenFor(p => property.ItemID)
+
+        @Html.Label(property.PropertyID)
+        @Html.HiddenFor(p => property.PropertyID)
+
+
+        @Html.Label(property.City)
+        @Html.Label(property.PostalCode)
+      </div>
+
+    
+        var selectedProperty = property.PropertyName;
+        var item = Sitecore.Context.Database.GetItem("/sitecore/content/Chartwell/Property Page/"+@selectedProperty+ "/Overview");
+
+    
+      <div class="input-group-btn">
+          <a href="@Sitecore.Links.LinkManager.GetItemUrl(@item)">Read More</a>
+           <button type="submit" class="btn btn btn-warning submit" style="color:black; letter-spacing:1px; font-weight:bold;">view residence <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+      </div>
+      @Html.Label(property.Url)
+    @*}*@
+  }
+
+
+
+

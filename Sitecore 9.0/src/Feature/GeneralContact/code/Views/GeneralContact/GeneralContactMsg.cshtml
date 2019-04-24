@@ -1,0 +1,33 @@
+﻿
+@model Chartwell.Feature.GeneralContact.Models.GeneralContactModel
+
+@using Sitecore.Mvc
+@using Sitecore.Mvc.Analytics.Extensions
+
+@Html.Sitecore().VisitorIdentification()
+
+@if (Model != null && !string.IsNullOrEmpty(Model.FirstName) && !Model.SendEmailError)
+{
+  <div class="resFormConfirmation">
+    <h4><strong>@Model.ContactUsConfirmMsg1</strong></h4>
+    <p>@Model.ContactUsConfirmMsg2</p>
+    @if (Model.VisitDate.HasValue)
+    {
+      <hr />
+      @Model.PVConfirmationMsg
+    }
+  </div>
+
+  /*<div class="resFormConfirmation">
+    <h4><strong>@Sitecore.Globalization.Translate.Text("ContactUsConfirmMsg1")</strong></h4>
+    <p>@Sitecore.Globalization.Translate.Text("ContactUsConfirmMsg2")</p>
+    <hr />
+    @*<p><small><em>@Sitecore.Globalization.Translate.Text("ContactUsConfirmMsg3")</em></small></p>*@
+    @if (Model.VisitDate.HasValue)
+    {
+      @Sitecore.Globalization.Translate.Text("PVConfirmationMsg")
+    }
+
+  </div>*/
+}
+

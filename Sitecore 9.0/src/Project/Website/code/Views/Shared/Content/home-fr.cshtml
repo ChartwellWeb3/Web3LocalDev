@@ -1,0 +1,219 @@
+﻿<div class="col-md-12 staticPage">
+
+  <style>
+    .blurbsHome {
+    }
+
+      .blurbsHome .thumbnail {
+        border: 1px solid #ddd !important;
+        border-radius: 4px !important;
+        min-height: 740px;
+      }
+
+      .blurbsHome .iconBlurbs {
+        display: block;
+        width: 120px;
+        height: 120px;
+        border: 4px solid white;
+        margin: -70px auto auto auto;
+        position: relative;
+        background-color: lightgray;
+        -webkit-border-radius: 1100% !important;
+        -moz-border-radius: 100% !important;
+        -o-border-radius: 100% !important;
+        border-radius: 100% !important;
+      }
+
+      .blurbsHome h3 {
+        color: gray !important;
+        font-weight: bold;
+        font-size: 2em !important;
+        text-align: center;
+      }
+
+      .blurbsHome a.btn {
+        text-align: center;
+        color: White;
+      }
+
+    .ug-icon-zoom {
+      display: none !important;
+    }
+
+    .ug-thumb-wrapper.ug-tile .ug-tile-icon.ug-icon-link {
+      margin-left: -5% !important;
+    }
+
+
+    .caption em {
+      display: block;
+      margin-bottom: 8px;
+      font-family: Georgia, serif;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .caption p {
+      font-size: 16px;
+    }
+  </style>
+
+  <div id="toolsgallery" class="row">
+
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+      <a href="/fr/nos-services/soins-de-santé-et-mieux-être" style="background-image:url(-/media/8D6B67419C14410FB156F4C0DC926E40.ashx);">
+        <h3>Options de services</h3>
+      </a>
+    </div>
+
+    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+      <a href="/fr/par-où-commencer/trouver-une-résidence-pour-un-proche/sondage-est-ce-le-moment" style="background-image:url(-/media/A5E79A5F1A9C4217B4143E26E5BEC35A.ashx);">
+        <h3>Sondage - est-ce le moment?</h3>
+      </a>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+      <a href="/fr/par-où-commencer/trouver-une-résidence-pour-soi/sondage-suis-je-prêt" style="background-image:url(-/media/25887E2B1B4D43E6A9976DCE6A227308.ashx);">
+        <h3>Sondage - Suis-je prêt?</h3>
+      </a>
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+      <a href="/fr/par-o%C3%B9-commencer/trouver-une-r%C3%A9sidence-pour-un-proche/soutenir-un-proche" style="background-image:url(-/media/AD7B702A925943EC9C57E456C2562525.ashx);">
+        <h3>Guide Soutenir un proche</h3>
+      </a>
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+      <a href="/fr/par-où-commencer/trouver-une-résidence-pour-soi/explorons-la-vie-en-résidence?gtm=exploring" style="background-image:url(-/media/910590581C354E2E99BD5E58F916C038.ashx);">
+        <h3>Explorons la vie en résidence</h3>
+      </a>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+      <a href="/fr/apprendre/planificateur-de-coûts?gtm=Budget" style="background-image:url(-/media/62DECA4B5F56454F8272777154EF7DB4.ashx);">
+        <h3>Planificateur de coûts</h3>
+      </a>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
+      <a href="/fr/résultat-de-la-recherche/?City=canada" style="background-image:url(-/media/1170393CA4B14F6BA51B2506954AEB86.ashx);">
+        <h3>Nos résidences</h3>
+      </a>
+    </div>
+  </div>
+
+
+
+  <!-- WOLC video -->
+
+  <div class="row" id="wishOfALifetime">
+    <div class="col-md-7 col-lg-8">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/3OfBMaMIjZI?rel=0&iv_load_policy=3&enablejsapi=1" allowfullscreen=""></iframe>
+      </div>
+    </div>
+    <div class="col-md-5 col-lg-4">
+      <h2>Les rêves d'aînés réalisés grâce à Rêve d’une vie Canada</h2>
+      <p>
+        Au fil des ans, Chartwell et Rêve d’une vie Canada ont réalisé les rêves de nombreux aînés méritants partout au pays. Regardez leurs histoires inspirantes.
+      </p>
+
+      <a id="btnTopNavReadVideo" href="../fr/à-propos-de-nous/rêve-d'une-vie-canada" class="btn btn-primary">Voir Plus</a>
+    </div>
+  </div><!-- / .row -->
+  <!-- end WOLC video -->
+
+
+  <div class="row" id="hpBlogArea">
+    <div class="col-md-12">
+
+      <div class="row" style="padding-bottom:10px;">
+        <div class="col-xs-8 col-sm-8 col-md-9"><h2>Nos nouvelles résidences </h2></div>
+        @{
+          var newResidencesFRUrl = Request.Url.Scheme + "://" + Request.Url.Host + "/" + Sitecore.Context.Language.Name + "/"
+              + Sitecore.Globalization.Translate.Text("SearchResults") + "/?"
+              + Sitecore.Globalization.Translate.Text("CitySearch")
+              + "=Québec";
+        }
+        @*<div class="col-xs-12 col-sm-4 col-md-3"><a id="btnTopNavRead" href="https://sc90.chartwell.com/fr/résultat-de-la-recherche/?Nom-de-la-ville=Québec" class="btn btn-info viewMoreBtn" style="background-image:none;">Voir plus</a></div>*@
+        @*<div class="col-xs-12 col-sm-4 col-md-3"><a id="btnTopNavRead" href="@(newResidencesFRUrl)/fr/résultat-de-la-recherche/?Nom-de-la-ville=Québec" class="btn btn-info viewMoreBtn" style="background-image:none;">Voir plus</a></div>*@
+        <div class="col-xs-4 col-sm-4 col-md-3 text-right"><a id="btnTopNavRead" href="@(newResidencesFRUrl)" class="btn btn-info viewMoreBtn" style="background-image:none;">Voir plus</a></div>
+
+      </div><!-- / .row -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="newestResidences" id="newestResidences">
+          </div><!-- / .newestResidences -->
+
+          <div class="newestResidences-nav" id="newestResidenceNav">
+          </div><!-- / .newestResidences-nav -->
+        </div><!-- / .col-md-12 -->
+      </div><!-- / .row -->
+    </div>
+    <div class="col-md-12">
+      <!-- Blog rss reader -->
+      <div id="divRss1">
+        @Html.Sitecore().Placeholder("Page.RecentBlog")
+      </div>
+    </div>
+  </div>
+
+
+</div><!-- / .staticPage -->
+<!-- slider home page tabs -->
+<script>
+  function openService(evt, serviceName) {
+    var i, tabServicecontent, tabServicelinks;
+    tabServicecontent = document.getElementsByClassName("tabServicecontent");
+    for (i = 0; i < tabServicecontent.length; i++) {
+      tabServicecontent[i].style.display = "none";
+    }
+    tabServicelinks = document.getElementsByClassName("tabServicelinks");
+    for (i = 0; i < tabServicelinks.length; i++) {
+      tabServicelinks[i].className = tabServicelinks[i].className.replace(" active", "");
+    }
+    document.getElementById(serviceName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+</script>
+
+<!-- newest residences assets -->
+<link rel="stylesheet" type="text/css" href="~/Assets/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="~/Assets/slick/slick-theme.css" />
+<script type="text/javascript" src="~/Assets/slick/slick.js"></script>
+
+<!-- / newest residences assets -->
+
+<style>
+  .viewMoreBtn {
+    background-color: White !important;
+    border-radius: 4px !important;
+    border: 1px solid #41B0FF !important;
+    color: #41B0FF !important;
+    margin-top: 20px;
+  }
+
+    .viewMoreBtn:hover {
+      background-color: #DEDEDE !important;
+      cursor: pointer;
+      color: #0073bc !important;
+      border-color: #0073bc !important;
+    }
+</style>
+
+<script type="text/javascript" src="~/Assets/js/chartwell/homepage-newest-residences.js"></script>
+
+<script type="text/javascript">
+  jQuery(document).ready(function () {
+    $('#divRss').FeedEk({
+      FeedUrl: 'https://blog.chartwell.com/feed/',
+      MaxCount: 2,
+      DateFormat: 'll',
+      DescCharacterLimit: 150,
+      DateFormatLang: 'en',
+      TitleLinkTarget: '_blank',
+      readMore: 'Read More '
+    });
+  });
+</script>

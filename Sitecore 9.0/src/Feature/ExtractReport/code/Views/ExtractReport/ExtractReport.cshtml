@@ -1,0 +1,35 @@
+﻿@model Chartwell.Feature.ExtractReport.Models.ExtractReportModel
+@using Sitecore.Mvc.Analytics.Extensions
+
+@Html.Sitecore().VisitorIdentification()
+
+<script src="~/Scripts/ExtractReportFromToDate.js"></script>
+
+<h1 class="text-center">Extract Report</h1>
+<br />
+<div id="DisplayReport" />
+
+@using (Ajax.BeginForm("DisplayReport", "ExtractReport", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "DisplayReport" }, new { @id = "ExtractReportLogin" }))
+{
+
+  <div class="col-md-12 ">
+    <div class="text-center">
+      <input type="submit" name="AllInquiryBtn" value="All Inquiry" id="AllInquirySubmit" class=" btn  btn-info ">
+      <input type="submit" name="CorporatInquiryBtn" value="Corporate Inquiry" id="CorporatInquirySubmit" class=" btn  btn-info  " style="margin-left: 0px">
+      <br />
+    </div>
+  </div>
+  <br />
+  <br />
+
+  <div class="form-group">
+    @*<div class="col-md-6">*@
+    @Html.LabelFor(m => m.FromDate) :
+    @Html.TextBoxFor(m => m.FromDate, new { @class = "form-control fromDate-" + Sitecore.Context.Language.Name, @id = "fromDate", @placeholder = @Sitecore.Globalization.Translate.Text("From Date") })
+    @*</div>
+      <div class="form-group">*@
+    @Html.LabelFor(m => m.ToDate) :
+    @Html.TextBoxFor(m => m.ToDate, new { @class = "form-control toDate-" + Sitecore.Context.Language.Name, @id = "toDate", @placeholder = @Sitecore.Globalization.Translate.Text("To Date") })
+  </div>
+  <hr class="featurette-divider">
+}

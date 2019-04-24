@@ -1,0 +1,10 @@
+﻿@model  List<Chartwell.Feature.MainSearch.Models.PropertyModel.PropertySearchModel>
+@using Sitecore.Mvc.Analytics.Extensions
+
+@Html.Sitecore().VisitorIdentification()
+
+<div class="row">
+  <div class="col-md-12">
+    @Html.Partial("SearchResults")
+  </div>
+</div>

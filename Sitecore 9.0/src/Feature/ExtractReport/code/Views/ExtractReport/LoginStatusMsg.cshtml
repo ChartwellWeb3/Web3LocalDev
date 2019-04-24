@@ -1,0 +1,13 @@
+﻿@model Chartwell.Feature.ExtractReport.Models.ExtractReportModel
+@using Sitecore.Mvc.Analytics.Extensions
+
+@Html.Sitecore().VisitorIdentification()
+
+@if (Model.LoginSuccess)
+{
+  <p>Success</p>
+}
+else
+{
+  <p>Please try Again</p>
+}

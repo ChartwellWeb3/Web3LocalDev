@@ -1,0 +1,205 @@
+﻿@model  Chartwell.Feature.ReviewsRatings.ViewModel.ReviewsRatingViewModel
+@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using Sitecore.Data
+@using Sitecore.Mvc.Analytics.Extensions
+
+@Html.Sitecore().VisitorIdentification()
+
+@*@using (Ajax.BeginForm("Index", "../../ReviewsRatings", new AjaxOptions
+  {
+    HttpMethod = "POST",
+    UpdateTargetId = "reviewsratings",
+    Url = Url.Action("Index", "ReviewsRatings", new { model = Model })
+  }))*@
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+  @Html.ValidationSummary(true)
+  @Html.HiddenFor(m => m.Property.PropertyID)
+  @Html.HiddenFor(m => m.Property.PropertyName)
+
+  @Html.HiddenFor(m => m.Review.DisplayEmailFirstName)
+  @Html.HiddenFor(m => m.Review.DisplayEmailLastName)
+  @Html.HiddenFor(m => m.Review.DisplayEmailId)
+  @Html.HiddenFor(m => m.Review.DisplayEmailCommentDate)
+  @Html.HiddenFor(m => m.Review.DisplayEmailComment)
+  @Html.HiddenFor(m => m.Review.DisplayEmailRatings)
+
+  <h1 class="resName">@Model.Property.PropertyName </h1>
+
+  <address class="resAddress">
+    @Model.Property.PropertyFormattedAddress
+
+  </address>
+
+  if (Model.Reviews.Count > 0)
+  {
+
+    <h4>
+      <span class="label label-primary" style="font-size:1em;">
+        &nbsp;<strong>
+          <span>@Html.Label(Model.Reviews[0].TotalReviewsCnt.ToString())</span>
+        </strong>
+      </span>&nbsp;
+      <span>@Sitecore.Globalization.Translate.Text("ReviewTitle")-</span>
+      <em style="font-size:1.5rem;">
+        @{
+          var fn = "/Assets/Images/Layout/" + Model.Reviews[0].OverallRatings + ".png";
+        }
+
+        <span>@Sitecore.Globalization.Translate.Text("ReviewRatingTitle")  - <img src="@fn.ToString()" /></span> &nbsp;
+      </em>
+    </h4>
+  }
+  else
+  {
+    <p>@Sitecore.Globalization.Translate.Text("ReviewBeTheFirst")</p>
+  }
+
+
+  <div class="panel-group">
+    <div class="panel panel-default">
+
+      <div class="panel-heading text-center" style="color: #333 !important; background-color: #f5f5f5 !important; border-color: #ddd !important;" id="divDropdownMenu">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse1">@Sitecore.Globalization.Translate.Text("ReviewButton")</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-2">
+              @Html.Label(@Sitecore.Globalization.Translate.Text("ReviewsContentTitle"))
+
+            </div>
+            <div class="col-md-10">
+              @Html.TextBoxFor(m => m.Ratings, new { @class = "shortField", id = "Ratings" })
+              @Html.ValidationMessageFor(m => m.Ratings, "", new { @class = "text-danger" })
+
+            </div>
+          </div>
+          <div class='rating-stars'>
+            <ul id='stars'>
+              <li class='star' title='Poor' data-value='1'>
+                <i class='fa fa-star fa-fw'></i>
+              </li>
+              <li class='star' title='Fair' data-value='2'>
+                <i class='fa fa-star fa-fw'></i>
+              </li>
+              <li class='star' title='Good' data-value='3'>
+                <i class='fa fa-star fa-fw'></i>
+              </li>
+              <li class='star' title='Excellent' data-value='4'>
+                <i class='fa fa-star fa-fw'></i>
+              </li>
+              <li class='star' title='WOW!!!' data-value='5'>
+                <i class='fa fa-star fa-fw'></i>
+              </li>
+            </ul>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2">
+
+              @Html.Label(@Sitecore.Globalization.Translate.Text("ReviewsFirstName"), new { @class = "floatLeftLabel" })
+
+            </div>
+            <div class="col-md-4">
+              @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+              @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="col-md-2">
+              @Html.Label(@Sitecore.Globalization.Translate.Text("ReviewsLastName"), new { @class = "floatLeftLabel" })
+
+            </div>
+            <div class="col-md-4">
+              @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+              @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-md-2">
+              @Html.LabelFor(m => m.Email, new { @class = "floatLeftLabel" })
+              @Html.Label(" : ", new { @class = "floatLeftLabel" })
+            </div>
+            <div class="col-md-4">
+              @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+              @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="col-md-2">
+              @Html.Label(@Sitecore.Globalization.Translate.Text("ReviewsRole"), new { @class = "floatLeftLabel" })
+            </div>
+            <div class="col-md-4">
+              @*@Html.TextBoxFor(m => m.Review.RoleIdentification, new { @class = "form-control"})*@
+              @Html.DropDownListFor(m => m.RoleIdentification, new SelectList(Model.RoleList, "RoleID", "RoleIDName"))
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-md-2">
+              @Html.Label(@Sitecore.Globalization.Translate.Text("Reviews"), new { @class = "floatLeftLabel" })
+            </div>
+            <div class="col-md-10">
+              @Html.TextAreaFor(m => m.Comments, new { @class = "form-control" })
+              @Html.ValidationMessageFor(m => m.Comments, "", new { @class = "text-danger" })
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="contactRadioButtonRequiredRR">
+              <div class="col-md-3">
+                @Html.Raw(Model.Captcha.CaptchaQuestion.ToString())
+              </div>
+              <div class="col-md-9">
+                @foreach (var image in Model.CaptchaImagesList)
+                {
+                  @Html.RadioButtonFor(m => m.CaptchaImagesList, image)
+                  var captchaImage = "/Assets/Images/CaptchaImages/" + image + ".jpg";
+                  <img src=@captchaImage.ToString() />
+                }
+                @Html.HiddenFor(m => m.Captcha.CaptchaAnswerImageName)
+                <br />
+                @Html.ValidationMessageFor(m => m.CaptchaImagesList, "", new { @class = "text-danger" })
+
+              </div>
+            </div>
+          </div>
+          <br />
+          <button type="submit" class="btn btn-warning" style='width:175px'>@Sitecore.Globalization.Translate.Text("ReviewsComment")</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  foreach (var rating in Model.Reviews)
+  {
+
+    <div class="row" style="border-bottom:1px solid #DEDEDE; padding-bottom:8px;">
+      <div class="col-md-3">
+        <p style="font-size:2rem;">
+          <span>@rating.FirstName @rating.LastName</span>
+        </p>
+        @Html.Label(rating.CommentDate)
+
+        @{
+          var fn = "/Assets/Images/Layout/" + @rating.Ratings.ToString() + ".png";
+        }
+        <img src=@fn />
+      </div>
+      <div class="col-md-9">
+        <blockquote class="col-md-12">
+          <span>@Html.Raw(rating.Comments.ToString())</span>
+        </blockquote>
+      </div>
+    </div>
+
+  }
+  <p>@Sitecore.Globalization.Translate.Text("ReviewDisclaimer") <a href="/website-terms-of-use" target="_blank">@Sitecore.Globalization.Translate.Text("Website Terms of Use")</a>.</p>
+
+
+}
